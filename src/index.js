@@ -1,8 +1,21 @@
-// import Cube from "./cube.js"
-// const Cube = require("./cube")
+import * as THREE from "three";
+// import { init, animate } from "./sphere";
 
-console.log("Webpack is working!")
+document.addEventListener("DOMContentLoaded", () => {
+    const root = document.getElementById('root')
+    // const starfield = new StarField(Universe);
+    // root.appendChild()
 
-// document.addEventListener("DOMContentLoaded", () => {
+//    let cube = new Cube(root)
+//    window.cube = cube;
+    // const mydiv = document.createElement('div');
 
-// }
+    // console.log('asdasda');
+    // console.log(root);
+    // root.appendChild(mydiv);
+
+    
+
+    // init();
+    // animate();
+})
