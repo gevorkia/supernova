@@ -2,21 +2,19 @@ import * as THREE from "three";
 
 
 class Starfield {
-    constructor() {
-        // this.emptyUniverse = emptyUniverse;
+    constructor(scene) {
+        this.scene = scene;
 
-        let renderer = new THREE.WebGLRenderer({antialias: true});
-        let scene = new THREE.Scene
-        let geometry = new THREE.Geometry();
-
+        this.geometry = new THREE.Geometry();
+        
         // populate geometry with vertices
-        populateUniverse(geometry)
+        this.populateUniverse();
     
         // turn geometry into cloud 
-        createUniverseCloud(geometry, scene)
-    
+        this.createUniverseCloud();
+    }
 
-    function populateUniverse(geometry) {
+    populateUniverse() {
         for (let i = 0; i < 10000; i++) {
 
             // Vector3 => x,y,z axis w no scaling
@@ -27,11 +25,11 @@ class Starfield {
             vertices.z = Math.random() * 1000 - 500;
 
             // creating that geometry
-            geometry.vertices.push(vertices);
+            this.geometry.vertices.push(vertices);
         }
     }
 
-    function createUniverseCloud(geometry, scene) {
+    createUniverseCloud() {
         let texture = THREE.ImageUtils.loadTexture("../images/pearl-clipart.jpg");
         
         // point cloud material best option
@@ -40,21 +38,21 @@ class Starfield {
             map: texture, 
             tranparent : true, 
             opacity: 1, 
-            blending: "AdditiveBlending"
+            // blending: "AdditiveBlending"
         })
 
-        let particles = new THREE.PointCloud( geometry, material)
-        scene.add(particles)
+        let particles = new THREE.PointCloud(this.geometry, material);
+        this.scene.add(particles);
     }
 
-    function updateSize() {
-        let sizeTracker = 1;
-        let direction = 1;
-        // update pointcloud animation
-        sizeTracker += direction; 
-        direction += (((sizeTracker % 100) == 0) ? -1 : 1 );
-        material.size = sizeTracker/100
-    }
+    // function updateSize() {
+    //     let sizeTracker = 1;
+    //     let direction = 1;
+    //     // update pointcloud animation
+    //     sizeTracker += direction; 
+    //     direction += (((sizeTracker % 100) == 0) ? -1 : 1 );
+    //     material.size = sizeTracker/100
+    // }
     
     // refRate(){
     //     //animation speed function
@@ -75,38 +73,6 @@ class Starfield {
     // render() {
     //     refRate();
     // }
-
-    function init() {
-      let camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
-      camera.position.z = 5;
-
-      let renderer = new THREE.WebGLRenderer({ antialias: true });
-      renderer.setClearColor("#e5e5e5");
-      renderer.setSize(window.innerWidth, window.innerHeight);
-
-      document.body.appendChild(renderer.domElement);
-
-      window.addEventListener("resize", () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-      });
-
-      function animate() {
-        requestAnimationFrame(animate);
-        // render();
-        // stats.update();
-        renderer.render(scene, camera);
-      }
-      init();
-      animate();
-    }
-    }
 }
 
 export default Starfield;
