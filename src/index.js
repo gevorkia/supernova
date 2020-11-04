@@ -1,10 +1,12 @@
 import * as THREE from "three";
 import Universe from "./universe";
 
+
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root')
 
-    const universe = new Universe(); 
+    const universe = new Universe();
+    
 //     // root.appendChild()
 
 // //    let cube = new Cube(root)
@@ -16,6 +18,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // root.appendChild(starfield);
     // root.appendChild(universe);
 
-    
 
 })

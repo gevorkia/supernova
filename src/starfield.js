@@ -30,7 +30,7 @@ class Starfield {
     }
 
     createUniverseCloud() {
-        let texture = THREE.ImageUtils.loadTexture("../images/pearl-clipart.jpg");
+        let texture = THREE.ImageUtils.loadTexture("../images/starfield.png");
         
         // point cloud material best option
         let material = new THREE.PointCloudMaterial({

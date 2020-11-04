@@ -24,6 +24,7 @@
     "babel-loader": "^8.1.0",
     "gsap": "^3.5.1",
     "three": "^0.122.0",
+    "three-orbitcontrols": "^2.110.3",
     "webpack": "^5.3.2",
     "webpack-cli": "^4.1.0"
   }

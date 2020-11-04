@@ -1,53 +1,44 @@
 import * as THREE from "three";
 import { SphereBufferGeometry } from "three";
 
-let camera, scene, renderer;
-let geometry, material, mesh;
+
+class Sphere {
+  constructor(scene) {
+    this.scene = scene,
+    
+    this.createSphere();
+  }
+
+  createSphere() {
+    let geometry = new SphereBufferGeometry(1.5, 10, 10);
+    let material = new THREE.MeshNormalMaterial();
+    let mesh = new THREE.Mesh(geometry, material);
+    mesh.position.set(0, 0, 0);
+    this.scene.add(mesh)
+  }
+
+  // animate() {
+  // requestAnimationFrame(animate);
+
+  // mesh.rotation.x += 0.02;
+  // mesh.rotation.y += 0.02;
+
+  // renderer.render(scene, camera);
+}
+
+export default Sphere;
 
 // init();
 // animate();
 
-export function init() {
-  camera = new THREE.PerspectiveCamera(
-    70,
-    window.innerWidth / window.innerHeight,
-    0.01,
-    10
-  );
-  camera.position.z = 1;
-
-  scene = new THREE.Scene();
 
 //   geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
 
-    const radius = 0.25;
-    const widthSegments = 16;
-    const heightSegments = 16;
+  // renderer = new THREE.WebGLRenderer({ antialias: true });
+  // renderer.setSize(window.innerWidth, window.innerHeight);
+  // document.body.appendChild(renderer.domElement);
 
-    geometry = new SphereBufferGeometry(
-    radius,
-    widthSegments,
-    heightSegments
-    );
 
-  material = new THREE.MeshNormalMaterial();
-
-  mesh = new THREE.Mesh(geometry, material);
-  scene.add(mesh);
-
-  renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
-}
-
-export function animate() {
-  requestAnimationFrame(animate);
-
-  mesh.rotation.x += 0.02;
-  mesh.rotation.y += 0.02;
-
-  renderer.render(scene, camera);
-}
 
 // var scene = new THREE.Scene();
 // var camera = new THREE.PerspectiveCamera(
