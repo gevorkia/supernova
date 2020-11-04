@@ -17,7 +17,8 @@ class Starfield {
     populateUniverse() {
         for (let i = 0; i < 10000; i++) {
 
-            // Vector3 => x,y,z axis w no scaling
+            // Vector3 => x,y,z axis w no scaling, default: 0
+            // Vector3((x: Float), (y: Float), (z: Float));
             let vertices = new THREE.Vector3();
 
             vertices.x = Math.random() * 1000 - 500;
@@ -33,46 +34,18 @@ class Starfield {
         let texture = THREE.ImageUtils.loadTexture("../images/starfield.png");
         
         // point cloud material best option
-        let material = new THREE.PointCloudMaterial({
-            size: 5, 
-            map: texture, 
-            tranparent : true, 
-            opacity: 1, 
-            // blending: "AdditiveBlending"
-        })
+        let material = new THREE.PointsMaterial({
+          size: 1,
+          map: texture,
+        //   tranparent: true,
+          opacity: 1,
+          blending: THREE.AdditiveBlending,
+        });
 
-        let particles = new THREE.PointCloud(this.geometry, material);
+        let particles = new THREE.Points(this.geometry, material);
+        // particles.position.set(1,1,1)
         this.scene.add(particles);
     }
-
-    // function updateSize() {
-    //     let sizeTracker = 1;
-    //     let direction = 1;
-    //     // update pointcloud animation
-    //     sizeTracker += direction; 
-    //     direction += (((sizeTracker % 100) == 0) ? -1 : 1 );
-    //     material.size = sizeTracker/100
-    // }
-    
-    // refRate(){
-    //     //animation speed function
-    //     let frameRate = 15;
-    //     let currTime, delta;
-    //     let oldTime = Date.now();
-    //     let interval = 1000/frameRate;
-
-    //     currTime = Date.now();
-    //     delta = curTime - oldTime;
-
-    //     if (delta > interval) {
-    //         oldTime = currTime - (delta % interval);
-    //         updateSize();
-    //     }
-    // }
-
-    // render() {
-    //     refRate();
-    // }
 }
 
 export default Starfield;

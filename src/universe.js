@@ -12,11 +12,7 @@ class Universe {
     // Create everything to be rendered
     new Starfield(this.scene);
     new Sphere(this.scene);
-
-    // const controls = new OrbitControls(camera, renderer.domElement);
-        
-    // 
-    // controls.update();
+   
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -27,11 +23,7 @@ class Universe {
   
       
       this.renderer.render(this.scene, this.camera);
-      // controls.update();
-      // const controls = new THREE.OrbitControls(
-      //   this.camera,
-      //   this.renderer.domElement
-      // );
+      // const controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);
       // controls.update();
     }
 
@@ -40,7 +32,8 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-
+    this.scene.add(new THREE.GridHelper(10, 10));
+    
     this.camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
@@ -65,6 +58,8 @@ class Universe {
     });
 
     const controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2.0; 
     controls.update();
   }
 
