@@ -2,7 +2,7 @@ import numpy as np
 import h5py 
 # h5py is python wrapper for hdf5 files
 
-infile=h5py.File("/Users/lili/Downloads/part_04354.h5part", "r")
+infile=h5py.File("../data/hdf5/part_03000.h5part", "r")
 
 T = np.array(infile["Step#0"]["T_MeV"])
 x = np.array(infile["Step#0"]["x"])
@@ -10,20 +10,28 @@ y = np.array(infile["Step#0"]["y"])
 entropy = np.array(infile["Step#0"]["entropy"])
 
 # export as text file with columns of x, y, T, entropy
-# np.savetxt("star_exp2.txt", np.c_[x,y,T,entropy])  
+np.savetxt("star_03000.txt", np.c_[x,y,T,entropy])  
 
 # need to delimit w commas
-# 1. VSC find & replace all 
+# 1. VSC find & replace all spaces with a comma (no space)
 # 2. Vim filename.txt
     # type : then paste %s/ /,/g 
     # :q to exit
 
-# Input = np.loadtxt("star_exp2.txt")
+# https://shancarter.github.io/mr-data-converter/
+# x,y,T,entropy <= add this for first row
+# 4.240041198730468750e+02,3.193525878906250000e+03,2.540372014045715332e-01,3.313353061676025391e+00, etc
+# output as => JSON - properties
+# settings: delimiter = comma
+
+Input = np.loadtxt("star_03000.txt")
 # raw data file => 0-last index of X, then Y, then T
-# x=Input[:,0]   # all rows, index 0
-# y=Input[:,1]
-# t=Input[:,2]
-# entropy=Input[:,3]
+x=Input[:,0]   # all rows, index 0
+y=Input[:,1]
+t=Input[:,2]
+entropy=Input[:,3]
+
+# data_extraction % python ./star_hdf5_extractor.py
 
 # print x.shape  # (24968,)
 # print x.min()  # 0 km
@@ -43,12 +51,13 @@ entropy = np.array(infile["Step#0"]["entropy"])
 # print entropy.min() # 0.0
 # print entropy.max() # 78.898285
 
-# python data_extraction/star_1ms_ext.py 
+
 
 # 1 MB per file (1 ms in time), 4 seconds total => 4GB data, 4000 files
 # ~25k rows aka snapshots of the star 
 
-# x, y, T each have 25000 values (positions). each pos has temp (mega electron volts => convertable)
+# x, y, T each have 25000 values (positions). 
+# each pos has temp (mega electron volts => convertable), entropy, etc
 
 # 3.1MB for 1 ms  of data = 24,967 POJOs (stored in an array)
 # Total 4000ms of data available equates to ~ 12.4 GB

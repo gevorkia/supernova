@@ -1,12 +1,14 @@
 import * as THREE from "three";
 import { SphereBufferGeometry } from "three";
+import { star00000 } from "../data/star_00000";
 import { star04354 } from "../data/star_04354";
 
 class Star {
   constructor(scene) {
     this.scene = scene, 
     
-    this.createStar(star04354);
+    this.createStar(star00000);
+    // this.createStar(star04354);
     // this.createSphere();
   }
 
@@ -52,6 +54,31 @@ class Star {
   // console.log(starOne[0].x) => 6.726234436035156
   // {x: 6.726234436035156, y: 8.939200401306152, T: 39.05860900878906, entropy: 2.533569812774658}
 
+  // generateTempColor(temperature) {
+  //   let heatmap = []
+    
+  // }
+  // generateTempColor(timepoint, temperature) {
+  //   let starTemps = timepoint.map(obj => {
+  //     obj.T
+  //   })
+
+  //   let maxStarTemp = starTemps.sort()[starTemps.length-1]
+  //   let percent = (temperature/maxStarTemp) * 100
+
+  //   let r, g, b = 0;
+  //     if (percent < 50) {
+  //       r = 255;
+  //       g = Math.round(5.1 * percent);
+  //     } else {
+  //       g = 255;
+  //       r = Math.round(510 - 5.1 * percent);
+  //     }
+  //     let h = r * 0x10000 + g * 0x100 + b * 0x1;
+  //     return ("000000" + h.toString(16)).slice(-6);
+  //   }
+  // }
+
   createStar(timepoint) {
 
     for (let i = 0; i < timepoint.length; i += 1) {
@@ -60,6 +87,8 @@ class Star {
 
       let geometry = new SphereBufferGeometry(0.01, 10, 10);
       let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      // let tempColor = this.generateTempColor(timepoint, timepoint.T);
+      // let material = new THREE.MeshBasicMaterial({ color: tempColor });
 
       let sphere = new THREE.Mesh(geometry, material);
       let sphereSym = new THREE.Mesh(geometry, material);
