@@ -28,7 +28,7 @@ class Star {
     // let sortedStarTemps = starTemps.sort()
     let sortedStarTemps = starTemps.sort((a, b) => a - b);
     let maxStarTemp = sortedStarTemps[sortedStarTemps.length - 1];
-    let percent = (temperature / maxStarTemp) * 100;
+    // let percent = (temperature / maxStarTemp) * 100;
 
     // prefix 0x used to indicate the number is being written in hex
     let blue = 0x0200ff;
@@ -45,20 +45,36 @@ class Star {
     let orangeMax = maxStarTemp * 0.8;
     let redMax = maxStarTemp;
 
-    debugger
-    // console.log(blueMax)
-    // console.log(greenMax)
-    // console.log(yellowMax)
-    // console.log(orangeMax)
-    // console.log(redMax)
-    
+    // debugger 
 
-
-    // if (percent >= 0 && percent <= (maxStarTemp/5)) {
-    //   return blue;
-    // } else if (percent > 16 && percent <= 32) {
-
+    // switch(temperature) {
+    //   case ((temperature >= 0) && (temperature <= blueMax)):
+    //     return blue;
+    //   case ((temperature > blueMax) && (temperature <= greenMax)):
+    //     return green;
+    //   case ((temperature > greenMax) && (temperature <= yellowMax)):
+    //     return yellow;
+    //   case ((temperature > yellowMax) && (temperature <= orangeMax)):
+    //     return orange;
+    //   case ((temperature > orangeMax) && (temperature <= redMax)):
+    //     return red;
+    //   default:
+    //     console.log("temp value is out of bounds")
     // }
+    // debugger 
+
+    if ((temperature >= 0) && (temperature <= blueMax)) {
+      return blue;
+    } else if ((temperature > blueMax) && (temperature <= greenMax)) {
+      return green;
+    } else if ((temperature > greenMax) && (temperature <= yellowMax)) {
+      // debugger
+      return yellow;
+    } else if ((temperature > yellowMax) && (temperature <= orangeMax)) {
+      return orange;
+    } else if ((temperature > orangeMax) && (temperature <= redMax)) {
+      return red;
+    }
 
     // let r, g, b = 0;
     //   if (percent < 50) {
@@ -75,7 +91,7 @@ class Star {
   createStar(timepoint) {
     // debugger
     // for (let i = 0; i < timepoint.length; i += 1) {
-    for (let i = 0; i < 1; i += 1) {
+    for (let i = 0; i < 10000; i += 1) {
       let geometry = new SphereBufferGeometry(0.01, 10, 10);
       // let material = new THREE.MeshBasicMaterial({ color: 0x17ff00 });
       let tempColor = this.generateTempColor(timepoint, timepoint[i].T);
