@@ -32,7 +32,7 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.GridHelper(20, 20));
+    this.scene.add(new THREE.GridHelper(100, 100));
 
     this.camera = new THREE.PerspectiveCamera(
       75,
