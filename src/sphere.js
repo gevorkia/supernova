@@ -24,42 +24,68 @@ class Sphere {
 
   createSphere() {
 
-    // let maxT = 0;
-    // let maxEntropy = 0;
-    // starOne.forEach(obj => {
-    //   if (obj.T > maxT) {
-    //     maxT = obj.T;
-    //   }
-    //   if (obj.entropy < maxEntropy) {
-    //     maxT = obj.entropy;
-    //   }
+    let maxT = 0;
+    let maxEntropy = 0;
+    
 
-    // })
+    starOne.forEach(obj => {
+      if (obj.T > maxT) {
+        maxT = obj.T;
+      }
+      if (obj.entropy > maxEntropy) {
+        maxEntropy = obj.entropy;
+      }
+
+    })
+
+    let maxX = 0;
+
+    for (let i=0; i < 100; i++) {
+      if (starOne[i].x > maxT) {
+        maxX = starOne[i];
+      }
+    }
+
+    // console.log(maxX)
 
     // console.log(maxT) // 
     // console.log(maxEntropy)
 
     // console.log((starOne.length))
-    console.log((starOne[0]))
-    console.log((starOne[0].T))
-    console.log((starOne[0].entropy))
+    // console.log((starOne[0]))
+    // // console.log((starOne[0].T))
+    // console.log((starOne[0].entropy))
+    // console.log((starOne[1].entropy))
+    // console.log((starOne[2].entropy))
+    // console.log((starOne[3].entropy))
+    // console.log((starOne[4].entropy))
    
     // console.log(starOne[0].x) => 6.726234436035156
     // {x: 6.726234436035156, y: 8.939200401306152, T: 39.05860900878906, entropy: 2.533569812774658}
     
     // for (let i = 0; i < starOne.length; i++) {
-    // for (let i = 0; i < 100; i++) {
-    //   // console.log(starOne[i])
-    //   let geometry = new SphereBufferGeometry(0.5, 10, 10);
-    //   let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-    //   let sphere = new THREE.Mesh(geometry, material);
-    //   let sphereSym = new THREE.Mesh(geometry, material);
-    //   // sphere.position.set((starOne[i].x), (starOne[i].y), 0);
-    //   sphere.position.set((starOne[i].x * 0.2), (starOne[i].y * 0.2), 0);
-    //   sphereSym.position.set(((-(starOne[i].x)) * 0.2), (starOne[i].y * 0.2), 0);
-    //   this.scene.add(sphere);
-    //   this.scene.add(sphereSym);
-    // }
+    for (let i = 0; i < 24968; i += 1) {
+      // console.log(starOne[i]);
+
+      let tempColors = [
+
+        
+      ]
+
+      let geometry = new SphereBufferGeometry(0.01, 10, 10);
+      let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      let sphere = new THREE.Mesh(geometry, material);
+      let sphereSym = new THREE.Mesh(geometry, material);
+      sphere.position.set(((starOne[i].x)/10000), ((starOne[i].y)/10000), 0);
+      sphereSym.position.set(((-(starOne[i].x))/10000), (starOne[i].y)/10000, 0);
+
+      // scaled down, still missing data
+      // sphere.position.set((starOne[i].x * 0.2), (starOne[i].y * 0.2), 0);
+      // sphereSym.position.set(((-(starOne[i].x)) * 0.2), (starOne[i].y * 0.2), 0);
+
+      this.scene.add(sphere);
+      this.scene.add(sphereSym);
+    }
 
     // let sphere2 = new THREE.Mesh(geometry, material);
     // sphere2.position.set(-1, 0, 0);
@@ -79,37 +105,5 @@ class Sphere {
 
 export default Sphere;
 
-// init();
-// animate();
 
 
-//   geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
-
-  // renderer = new THREE.WebGLRenderer({ antialias: true });
-  // renderer.setSize(window.innerWidth, window.innerHeight);
-  // document.body.appendChild(renderer.domElement);
-
-
-
-// var scene = new THREE.Scene();
-// var camera = new THREE.PerspectiveCamera(
-//   75,
-//   window.innerWidth / window.innerHeight,
-//   1,
-//   10000
-// );
-// var renderer = new THREE.WebGLRenderer();
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// document.body.appendChild(renderer.domElement);
-// var geometry = new THREE.BoxGeometry(700, 700, 700, 10, 10, 10);
-// var material = new THREE.MeshBasicMaterial({ color: 0xfffff, wireframe: true });
-// var cube = new THREE.Mesh(geometry, material);
-// scene.add(cube);
-// camera.position.z = 1000;
-// function render() {
-//   requestAnimationFrame(render);
-//   cube.rotation.x += 0.01;
-//   cube.rotation.y += 0.01;
-//   renderer.render(scene, camera);
-// }
-// render();

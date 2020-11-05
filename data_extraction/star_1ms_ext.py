@@ -10,7 +10,7 @@ y = np.array(infile["Step#0"]["y"])
 entropy = np.array(infile["Step#0"]["entropy"])
 
 # export as text file with columns of x, y, T, entropy
-np.savetxt("star_exp2.txt", np.c_[x,y,T,entropy])  
+# np.savetxt("star_exp2.txt", np.c_[x,y,T,entropy])  
 
 # need to delimit w commas
 # 1. VSC find & replace all 
@@ -18,16 +18,16 @@ np.savetxt("star_exp2.txt", np.c_[x,y,T,entropy])
     # type : then paste %s/ /,/g 
     # :q to exit
 
-Input = np.loadtxt("star_exp2.txt")
+# Input = np.loadtxt("star_exp2.txt")
 # raw data file => 0-last index of X, then Y, then T
-x=Input[:,0]   # all rows, index 0
-y=Input[:,1]
-t=Input[:,2]
-entropy=Input[:,3]
+# x=Input[:,0]   # all rows, index 0
+# y=Input[:,1]
+# t=Input[:,2]
+# entropy=Input[:,3]
 
-print x.shape  # (24968,)
-print x.min()  # 0 km
-print x.max()  # 99631 km  (position boundaries, outside and inside per "cell in grid")
+# print x.shape  # (24968,)
+# print x.min()  # 0 km
+# print x.max()  # 99631 km  (position boundaries, outside and inside per "cell in grid")
 
 # print y.shape  # (24968,)
 # print y.min()  # 0 km 
@@ -35,13 +35,13 @@ print x.max()  # 99631 km  (position boundaries, outside and inside per "cell in
 
 # 2D data => sphere math
 
-# print t.shape # (24968,)
-# print t.min() # 0.0
-# print t.max() # 82.211
+print T.shape # (24968,)
+print T.min() # 0.0
+print T.max() # 82.211
 
 print entropy.shape # (24968,)
 print entropy.min() # 0.0
-print entropy.max() # 82.211
+print entropy.max() # 78.898285
 
 # python data_extraction/star_1ms_ext.py 
 
@@ -52,6 +52,13 @@ print entropy.max() # 82.211
 
 # 3.1MB for 1 ms  of data = 24,967 POJOs (stored in an array)
 # Total 4000ms of data available equates to ~ 12.4 GB
+
+# 4s of data sampling starts when core collapses. 
+# data sampled is the last ms of the explosion simulation
+# 4s starts after core-bounce, which sets t=0
+# The shock propagates spherically initially, but then quickly becomes aspherical
+# You can see the shock boundary here, at ~50,000 km
+
 
 # MacBook-Pro:Downloads lili$ h5ls part_04354.h5part
 # Step#0                   Group

@@ -32,7 +32,9 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.GridHelper(100, 100));
+    // this.scene.add(new THREE.GridHelper(20, 20));
+    const axesHelper = new THREE.AxesHelper(5);
+    this.scene.add(axesHelper);
 
     this.camera = new THREE.PerspectiveCamera(
       75,
@@ -40,9 +42,9 @@ class Universe {
       0.1,
       1000
     );
-    this.camera.position.x = 7;
-    this.camera.position.y = 10;
-    this.camera.position.z = 2;
+    this.camera.position.x = 1;
+    this.camera.position.y = 1;
+    this.camera.position.z = 10;
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -67,7 +69,7 @@ class Universe {
   }
 
   createScene() {
-    let geometry = new THREE.SphereGeometry(0.5, 10, 10);
+    let geometry = new THREE.SphereGeometry(0.6, 10, 10);
     let material = new THREE.MeshLambertMaterial({ color: 0xffcc00 });
     this.mesh = new THREE.Mesh(geometry, material);
 
@@ -87,8 +89,9 @@ class Universe {
       meshX += 1;
     }
 
-    const light = new THREE.PointLight(0xffffff, 1, 500);
-    light.position.set(10, 0, 25);
+    const light = new THREE.AmbientLight(0x404040, 100);
+    // const light = new THREE.PointLight(0xffffff, 1, 500);
+    // light.position.set(10, 0, 25);
     this.scene.add(light);
   }
 }
