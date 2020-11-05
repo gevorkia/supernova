@@ -35,13 +35,13 @@ entropy = np.array(infile["Step#0"]["entropy"])
 
 # 2D data => sphere math
 
-print T.shape # (24968,)
-print T.min() # 0.0
-print T.max() # 82.211
+# print T.shape # (24968,)
+# print T.min() # 0.0
+# print T.max() # 82.211
 
-print entropy.shape # (24968,)
-print entropy.min() # 0.0
-print entropy.max() # 78.898285
+# print entropy.shape # (24968,)
+# print entropy.min() # 0.0
+# print entropy.max() # 78.898285
 
 # python data_extraction/star_1ms_ext.py 
 

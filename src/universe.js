@@ -1,7 +1,7 @@
 import * as THREE from "three";
 const OrbitControls = require("three-orbitcontrols");
-import Starfield from "./starfield";
-import Sphere from "./sphere";
+import Starfield from "./backdrop";
+import Star from "./star";
 
 class Universe {
   constructor() {
@@ -11,7 +11,7 @@ class Universe {
 
     // Create everything to be rendered
     new Starfield(this.scene);
-    new Sphere(this.scene);
+    new Star(this.scene);
    
 
     const animate = () => {
@@ -32,7 +32,7 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    // this.scene.add(new THREE.GridHelper(20, 20));
+    this.scene.add(new THREE.GridHelper(20, 20));
     const axesHelper = new THREE.AxesHelper(5);
     this.scene.add(axesHelper);
 
