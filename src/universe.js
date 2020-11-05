@@ -32,15 +32,18 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.GridHelper(10, 10));
-    
+    this.scene.add(new THREE.GridHelper(20, 20));
+
     this.camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
-    this.camera.position.z = 5;
+    this.camera.position.x = 7;
+    this.camera.position.y = 10;
+    this.camera.position.z = 2;
+    this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setClearColor("#000000");

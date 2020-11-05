@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { SphereBufferGeometry } from "three";
-
+import {starOne} from "../data/star_1ms";
 
 class Sphere {
   constructor(scene) {
@@ -9,12 +9,32 @@ class Sphere {
     this.createSphere();
   }
 
+  // createSphere() {
+  //   console.log(starOne[0]);
+  //   let geometry = new SphereBufferGeometry(1.5, 10, 10);
+  //   let material = new THREE.MeshNormalMaterial();
+  //   let sphere = new THREE.Mesh(geometry, material);
+  //   let sphere2 = new THREE.Mesh(geometry, material);
+  //   sphere.position.set(1, 0, 0);
+  //   sphere2.position.set(-1, 0, 0);
+  //   // sphere.position.setX(2)
+  //   this.scene.add(sphere);
+  //   this.scene.add(sphere2);
+  // }
+  
   createSphere() {
-    let geometry = new SphereBufferGeometry(1.5, 10, 10);
-    let material = new THREE.MeshNormalMaterial();
-    let mesh = new THREE.Mesh(geometry, material);
-    mesh.position.set(0, 0, 0);
-    this.scene.add(mesh)
+    console.log(starOne[0]);
+
+
+    let geometry = new SphereBufferGeometry(1, 10, 10);
+    let material = new THREE.MeshBasicMaterial({ color: 0x87cefa });
+    let sphere = new THREE.Mesh(geometry, material);
+    // let sphere2 = new THREE.Mesh(geometry, material);
+    sphere.position.set(1, 0, 0);
+    // sphere2.position.set(-1, 0, 0);
+    // sphere.position.setX(2)
+    this.scene.add(sphere);
+    // this.scene.add(sphere2);
   }
 
   // animate() {
