@@ -23,18 +23,23 @@ class Sphere {
   // }
 
   createSphere() {
-    console.log((starOne.length-1))
+    console.log((starOne[0]))
+    console.log((starOne[0].x))
+    console.log((starOne[0].x * 0.2))
     // console.log(starOne[0].x) => 6.726234436035156
     // {x: 6.726234436035156, y: 8.939200401306152, T: 39.05860900878906, entropy: 2.533569812774658}
     
-    for (let i = 0; i < 24967; i++) {
+    for (let i = 0; i < 100; i++) {
+    // for (let i = 0; i < 100; i++) {
+      // console.log(starOne[i])
       let geometry = new SphereBufferGeometry(0.5, 10, 10);
       let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
       let sphere = new THREE.Mesh(geometry, material);
-      sphere.position.set(starOne[i].x, starOne[i].y, 0);
-      let sphereLeft = sphere.position.set(-starOne[i].x, starOne[i].y, 0);
-      this.scene.add(sphere);
-      this.scene.add(sphereLeft);
+      let sphereSym = new THREE.Mesh(geometry, material);
+      // sphere.position.set((starOne[i].x)(0.2), (starOne[i].y)(0.2), 0);
+      // sphereSym.position.set(((-(starOne[i].x))(0.2)), (starOne[i].y)(0.2), 0);
+      // this.scene.add(sphere);
+      // this.scene.add(sphereSym);
     }
 
     // let sphere2 = new THREE.Mesh(geometry, material);
