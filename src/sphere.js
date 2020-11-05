@@ -23,24 +23,43 @@ class Sphere {
   // }
 
   createSphere() {
+
+    // let maxT = 0;
+    // let maxEntropy = 0;
+    // starOne.forEach(obj => {
+    //   if (obj.T > maxT) {
+    //     maxT = obj.T;
+    //   }
+    //   if (obj.entropy < maxEntropy) {
+    //     maxT = obj.entropy;
+    //   }
+
+    // })
+
+    // console.log(maxT) // 
+    // console.log(maxEntropy)
+
+    // console.log((starOne.length))
     console.log((starOne[0]))
-    console.log((starOne[0].x))
-    console.log((starOne[0].x * 0.2))
+    console.log((starOne[0].T))
+    console.log((starOne[0].entropy))
+   
     // console.log(starOne[0].x) => 6.726234436035156
     // {x: 6.726234436035156, y: 8.939200401306152, T: 39.05860900878906, entropy: 2.533569812774658}
     
-    for (let i = 0; i < 100; i++) {
+    // for (let i = 0; i < starOne.length; i++) {
     // for (let i = 0; i < 100; i++) {
-      // console.log(starOne[i])
-      let geometry = new SphereBufferGeometry(0.5, 10, 10);
-      let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-      let sphere = new THREE.Mesh(geometry, material);
-      let sphereSym = new THREE.Mesh(geometry, material);
-      // sphere.position.set((starOne[i].x)(0.2), (starOne[i].y)(0.2), 0);
-      // sphereSym.position.set(((-(starOne[i].x))(0.2)), (starOne[i].y)(0.2), 0);
-      // this.scene.add(sphere);
-      // this.scene.add(sphereSym);
-    }
+    //   // console.log(starOne[i])
+    //   let geometry = new SphereBufferGeometry(0.5, 10, 10);
+    //   let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+    //   let sphere = new THREE.Mesh(geometry, material);
+    //   let sphereSym = new THREE.Mesh(geometry, material);
+    //   // sphere.position.set((starOne[i].x), (starOne[i].y), 0);
+    //   sphere.position.set((starOne[i].x * 0.2), (starOne[i].y * 0.2), 0);
+    //   sphereSym.position.set(((-(starOne[i].x)) * 0.2), (starOne[i].y * 0.2), 0);
+    //   this.scene.add(sphere);
+    //   this.scene.add(sphereSym);
+    // }
 
     // let sphere2 = new THREE.Mesh(geometry, material);
     // sphere2.position.set(-1, 0, 0);
