@@ -41,7 +41,7 @@ class Star {
 
       starParticles.vertices.push(vertices);
     }
-    let texture = THREE.ImageUtils.loadTexture("../images/starfield.png");
+    let texture = THREE.ImageUtils.loadTexture("images/starfield.png");
 
     let material = new THREE.PointsMaterial({
       size: 0.1,
