@@ -68,32 +68,32 @@ class Universe {
     controls.update();
   }
 
-  createScene() {
-    let geometry = new THREE.SphereGeometry(0.6, 10, 10);
-    let material = new THREE.MeshLambertMaterial({ color: 0xffcc00 });
-    this.mesh = new THREE.Mesh(geometry, material);
+  // createScene() {
+  //   let geometry = new THREE.SphereGeometry(0.6, 10, 10);
+  //   let material = new THREE.MeshLambertMaterial({ color: 0xffcc00 });
+  //   this.mesh = new THREE.Mesh(geometry, material);
 
-    this.mesh.position.x = -2;
-    this.mesh.position.set(2, 2, -2); // (x, y, z)
-    this.mesh.rotation.set(45, 0, 0); // static rotation
-    this.mesh.scale.set(1, 2, 1);
-    this.scene.add(this.mesh);
+  //   this.mesh.position.x = -2;
+  //   this.mesh.position.set(2, 2, -2); // (x, y, z)
+  //   this.mesh.rotation.set(45, 0, 0); // static rotation
+  //   this.mesh.scale.set(1, 2, 1);
+  //   this.scene.add(this.mesh);
 
-    let meshX = -10;
-    for (let i = 0; i < 15; i++) {
-      this.mesh = new THREE.Mesh(geometry, material);
-      this.mesh.position.x += (Math.random() - 0.5) * 10;
-      this.mesh.position.y += (Math.random() - 0.5) * 10;
-      this.mesh.position.z += (Math.random() - 0.5) * 10;
-      this.scene.add(this.mesh);
-      meshX += 1;
-    }
+  //   let meshX = -10;
+  //   for (let i = 0; i < 15; i++) {
+  //     this.mesh = new THREE.Mesh(geometry, material);
+  //     this.mesh.position.x += (Math.random() - 0.5) * 10;
+  //     this.mesh.position.y += (Math.random() - 0.5) * 10;
+  //     this.mesh.position.z += (Math.random() - 0.5) * 10;
+  //     this.scene.add(this.mesh);
+  //     meshX += 1;
+  //   }
 
-    const light = new THREE.AmbientLight(0x404040, 100);
-    // const light = new THREE.PointLight(0xffffff, 1, 500);
-    // light.position.set(10, 0, 25);
-    this.scene.add(light);
-  }
+  //   const light = new THREE.AmbientLight(0x404040, 100);
+  //   // const light = new THREE.PointLight(0xffffff, 1, 500);
+  //   // light.position.set(10, 0, 25);
+  //   this.scene.add(light);
+  // }
 }
 
 export default Universe;
