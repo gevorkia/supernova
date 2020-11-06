@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import { SphereBufferGeometry } from "three";
 import { star00000 } from "../data/star_00000";
-import { star01000 } from "../data/star_00000";
-import { star02000 } from "../data/star_00000";
-import { star03000 } from "../data/star_00000";
+import { star01000 } from "../data/star_01000";
+import { star02000 } from "../data/star_02000";
+import { star03000 } from "../data/star_03000";
 import { star04354 } from "../data/star_04354";
 
 class Star {
@@ -15,27 +15,33 @@ class Star {
       // this.createStar(star03000);
       // this.createStar(star04354, 0xff0000);
 
-      this.test(star00000, 0xfffa00);
-      this.test(star04354, 0xff0000);
+      // each ms represented by a different color
+      this.createStar(star00000, 0x0200ff); //blue
+      this.createStar(star01000, 0x17ff00); // green
+      this.createStar(star02000, 0xfffa00); // yellow
+      this.createStar(star03000, 0xff8200); // orange
+      this.createStar(star04354, 0xff0000); // red
+
+      // this.createStar(star04354);
   }
 
-  test(timepoint, hex) {
+  createStar(timepoint, hex) {
     // debugger
     let starParticles = new THREE.Geometry();
 
-    for (let i = 0; i < timepoint.length; i += 1) {
-    // for (let i = 0; i < 100; i += 1) {
+    for (let i = 0; i < timepoint.length; i += 10) {
+      // for (let i = 0; i < 100; i += 1) {
       let vertices = new THREE.Vector3();
       vertices.x = timepoint[i].x / 10000;
       vertices.y = timepoint[i].y / 10000;
       vertices.z = 0;
-
+      // let tempColor = this.generateHeatMap(timepoint, timepoint[i].entropy);
       starParticles.vertices.push(vertices);
     }
-    for (let i = 0; i < timepoint.length; i += 1) {
-    // for (let i = 0; i < 100; i += 1) {
+    for (let i = 0; i < timepoint.length; i += 10) {
+      // for (let i = 0; i < 100; i += 1) {
       let vertices = new THREE.Vector3();
-      vertices.x = -(timepoint[i].x) / 10000;
+      vertices.x = -timepoint[i].x / 10000;
       vertices.y = timepoint[i].y / 10000;
       vertices.z = 0;
 
@@ -51,36 +57,10 @@ class Star {
       blending: THREE.AdditiveBlending,
     });
 
-
     let points = new THREE.Points(starParticles, material);
     // particles.position.set(1,1,1)
     this.scene.add(points);
   }
-
-  // createStar(timepoint, hex) {
-  //   // debugger
-  //   for (let i = 0; i < timepoint.length; i += 1) {
-  //     // for (let i = 0; i < 100; i += 1) {
-  //     let geometry = new SphereBufferGeometry(0.01, 10, 10);
-  //     // let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-  //     let material = new THREE.MeshBasicMaterial({ color: hex });
-  //     // let tempColor = this.generateHeatMap(timepoint, timepoint[i].entropy);
-  //     // console.log(tempColor);
-  //     // let material = new THREE.MeshBasicMaterial({ color: tempColor });
-
-  //     let sphere = new THREE.Mesh(geometry, material);
-  //     let sphereSym = new THREE.Mesh(geometry, material);
-
-  //     let scaledX = timepoint[i].x / 10000;
-  //     let scaledY = timepoint[i].y / 10000;
-
-  //     sphere.position.set(scaledX, scaledY, 0);
-  //     sphereSym.position.set(-scaledX, scaledY, 0);
-
-  //     this.scene.add(sphere);
-  //     this.scene.add(sphereSym);
-  //   }
-  // }
 
   generateHeatMap(timepoint, value) {
     // debugger
@@ -136,6 +116,31 @@ class Star {
     //   let h = (r * 0x10000) + (g * 0x100) + (b * 0x1);
     //   return "0x" +("000000" + h.toString(16)).slice(-6);
   }
+
+  // createSphereStar(timepoint, hex) {
+  //   // debugger
+  //   for (let i = 0; i < timepoint.length; i += 1) {
+  //     // for (let i = 0; i < 100; i += 1) {
+  //     let geometry = new SphereBufferGeometry(0.01, 10, 10);
+  //     // let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+  //     let material = new THREE.MeshBasicMaterial({ color: hex });
+  //     // let tempColor = this.generateHeatMap(timepoint, timepoint[i].entropy);
+  //     // console.log(tempColor);
+  //     // let material = new THREE.MeshBasicMaterial({ color: tempColor });
+
+  //     let sphere = new THREE.Mesh(geometry, material);
+  //     let sphereSym = new THREE.Mesh(geometry, material);
+
+  //     let scaledX = timepoint[i].x / 10000;
+  //     let scaledY = timepoint[i].y / 10000;
+
+  //     sphere.position.set(scaledX, scaledY, 0);
+  //     sphereSym.position.set(-scaledX, scaledY, 0);
+
+  //     this.scene.add(sphere);
+  //     this.scene.add(sphereSym);
+  //   }
+  // }
 }
 
 export default Star;
