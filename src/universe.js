@@ -62,10 +62,10 @@ class Universe {
       this.camera.updateProjectionMatrix();
     });
 
-    // const controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
-    // controls.autoRotate = true;
-    // controls.autoRotateSpeed = 2.0; 
-    // controls.update();
+    const controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2.0; 
+    controls.update();
   }
 
   createScene() {

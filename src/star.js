@@ -18,17 +18,21 @@ class Star {
     // this.createSphere();
   }
 
-  generateTempColor(timepoint, temperature) {
+  generateHeatMap(timepoint, value) {
     // debugger
-    let starTemps = []
+    
+    let starVals = []
     
     timepoint.forEach((obj) => {
-      starTemps.push(obj.T);
+      if (value === "timepoint[i].T") {
+        starVals.push(obj.T)
+      } else {
+        starVals.push(obj.entropy);
+      }
     });
-    // let sortedStarTemps = starTemps.sort()
-    let sortedStarTemps = starTemps.sort((a, b) => a - b);
-    let maxStarTemp = sortedStarTemps[sortedStarTemps.length - 1];
-    // let percent = (temperature / maxStarTemp) * 100;
+    // let sortedStarVals = starVals.sort()
+    let sortedStarVals = starVals.sort((a, b) => a - b);
+    let maxStarVal = sortedStarVals[sortedStarVals.length - 1];
 
     // prefix 0x used to indicate the number is being written in hex
     let blue = 0x0200ff;
@@ -39,40 +43,21 @@ class Star {
     // return green;
 
     // color intervals
-    let blueMax = maxStarTemp * 0.2;  
-    let greenMax = maxStarTemp * 0.4;
-    let yellowMax = maxStarTemp * 0.6;
-    let orangeMax = maxStarTemp * 0.8;
-    let redMax = maxStarTemp;
+    let blueMax = maxStarVal * 0.2;  
+    let greenMax = maxStarVal * 0.4;
+    let yellowMax = maxStarVal * 0.6;
+    let orangeMax = maxStarVal * 0.8;
+    let redMax = maxStarVal; 
 
-    // debugger 
-
-    // switch(temperature) {
-    //   case ((temperature >= 0) && (temperature <= blueMax)):
-    //     return blue;
-    //   case ((temperature > blueMax) && (temperature <= greenMax)):
-    //     return green;
-    //   case ((temperature > greenMax) && (temperature <= yellowMax)):
-    //     return yellow;
-    //   case ((temperature > yellowMax) && (temperature <= orangeMax)):
-    //     return orange;
-    //   case ((temperature > orangeMax) && (temperature <= redMax)):
-    //     return red;
-    //   default:
-    //     console.log("temp value is out of bounds")
-    // }
-    // debugger 
-
-    if ((temperature >= 0) && (temperature <= blueMax)) {
+    if ((value >= 0) && (value <= blueMax)) {
       return blue;
-    } else if ((temperature > blueMax) && (temperature <= greenMax)) {
+    } else if ((value > blueMax) && (value <= greenMax)) {
       return green;
-    } else if ((temperature > greenMax) && (temperature <= yellowMax)) {
-      // debugger
+    } else if ((value > greenMax) && (value <= yellowMax)) {
       return yellow;
-    } else if ((temperature > yellowMax) && (temperature <= orangeMax)) {
+    } else if ((value > yellowMax) && (value <= orangeMax)) {
       return orange;
-    } else if ((temperature > orangeMax) && (temperature <= redMax)) {
+    } else if ((value > orangeMax) && (value <= redMax)) {
       return red;
     }
 
@@ -90,13 +75,13 @@ class Star {
 
   createStar(timepoint) {
     // debugger
-    // for (let i = 0; i < timepoint.length; i += 1) {
-    for (let i = 0; i < 10000; i += 1) {
+    for (let i = 0; i < timepoint.length; i += 1) {
+    // for (let i = 0; i < 100; i += 1) {
       let geometry = new SphereBufferGeometry(0.01, 10, 10);
-      // let material = new THREE.MeshBasicMaterial({ color: 0x17ff00 });
-      let tempColor = this.generateTempColor(timepoint, timepoint[i].T);
+      let material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+      // let tempColor = this.generateHeatMap(timepoint, timepoint[i].entropy);
       // console.log(tempColor);
-      let material = new THREE.MeshBasicMaterial({ color: tempColor });
+      // let material = new THREE.MeshBasicMaterial({ color: tempColor });
 
       let sphere = new THREE.Mesh(geometry, material);
       let sphereSym = new THREE.Mesh(geometry, material);
