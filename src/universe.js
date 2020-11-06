@@ -49,6 +49,7 @@ class Universe {
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.setClearColor("#000000");
+    // this.renderer.setClearColor("#FFFFFF");
     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
     document.body.appendChild(this.renderer.domElement);
