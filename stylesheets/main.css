@@ -59,7 +59,7 @@ canvas {
 }
 
 h1 {
- /* position: fixed;  */
+ position: fixed; 
  z-index: 10;
  color: white;
  font-weight: 800;
@@ -73,12 +73,11 @@ h1 {
 
 } */
 .slider-footer {
-	position: absolute;
     /* position: fixed; */
-    color: red;
+    /* color: red; */
     /* left: 100px; */
-    margin-top: 90%;
-	position: absolute;
+    /* margin-top: 90%; */
+	/* position: absolute; */
 	
    /* position:fixed; */
 	/* left: 0;

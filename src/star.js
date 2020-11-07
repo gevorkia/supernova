@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import { SphereBufferGeometry } from "three";
 import { star00000 } from "../data/star_00000";
 import { star01000 } from "../data/star_01000";
 import { star02000 } from "../data/star_02000";
@@ -9,11 +8,6 @@ import { star04354 } from "../data/star_04354";
 class Star {
   constructor(scene) {
     this.scene = scene
-      // this.createStar(star00000, 0xfffa00);
-      // this.createStar(star01000);
-      // this.createStar(star02000);
-      // this.createStar(star03000);
-      // this.createStar(star04354, 0xff0000);
 
       // each ms represented by a different color
       // this.createStar(star00000, 0x0200ff); //blue
@@ -23,13 +17,41 @@ class Star {
       // this.createStar(star04354, 0xff0000); // red
 
       // this.createStar(star04354);
-  }
 
+      const slider = document.getElementById("timelapse-slider");
+      // slider.addEventListener("input", this.sliderChange.bind(this));
+      slider.addEventListener("input", this.sliderChange.bind(this));
+    }
+    
+    sliderChange() {
+      console.log(event);
+      
+      while (this.scene.children.length > 0) {
+        this.scene.remove(this.scene.children[0]);
+      }
+        
+        let sliderValue = event.currentTarget.value;
+        let starFiles = [star00000, star01000, star02000, star03000, star04354];
+        // let starColors = 
+        console.log(sliderValue);
+
+      // let obj = {starFile:  `star0${event.currentTarget.value}000`};
+      // // obj[`star0${event.currentTarget.value}000`]
+      // console.log(typeof obj.starFile)
+      // console.log(obj.starFile)
+
+      this.createStar(starFiles[sliderValue], 0xff0000);
+      // this.createStar(star04354, 0xff0000);
+      
+    }
+  
   createStar(timepoint, hex) {
     // debugger
     let starParticles = new THREE.Geometry();
 
-    for (let i = 0; i < timepoint.length; i += 10) {
+
+
+    for (let i = 0; i < timepoint.length; i += 2) {
       // for (let i = 0; i < 100; i += 1) {
       let vertices = new THREE.Vector3();
       vertices.x = timepoint[i].x / 10000;
@@ -38,7 +60,7 @@ class Star {
       // let tempColor = this.generateHeatMap(timepoint, timepoint[i].entropy);
       starParticles.vertices.push(vertices);
     }
-    for (let i = 0; i < timepoint.length; i += 10) {
+    for (let i = 0; i < timepoint.length; i += 2) {
       // for (let i = 0; i < 100; i += 1) {
       let vertices = new THREE.Vector3();
       vertices.x = -timepoint[i].x / 10000;
