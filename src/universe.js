@@ -3,6 +3,12 @@ const OrbitControls = require("three-orbitcontrols");
 import Starfield from "./backdrop";
 import Star from "./star";
 
+import { star00000 } from "../data/star_00000";
+import { star01000 } from "../data/star_01000";
+import { star02000 } from "../data/star_02000";
+import { star03000 } from "../data/star_03000";
+import { star04354 } from "../data/star_04354";
+
 class Universe {
   constructor() {
     this.init();
@@ -10,9 +16,12 @@ class Universe {
     // this.createScene();
 
     // Create everything to be rendered
-    new Starfield(this.scene);
-    new Star(this.scene);
-   
+    // new Starfield(this.scene);
+    // new Star(this.scene);
+
+    const slider = document.getElementById("timelapse-slider");
+    // // slider.addEventListener("input", this.sliderChange.bind(this));
+    slider.addEventListener("input", this.sliderChange.bind(this));
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -20,14 +29,36 @@ class Universe {
 
       // this.mesh.rotation.y += 0.02;
       // this.camera.position.z += 0.02;
-  
-      
+
       this.renderer.render(this.scene, this.camera);
       // const controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);
       // controls.update();
-    }
+    };
 
     animate();
+  }
+
+  sliderChange() {
+    console.log(event);
+
+    while (this.scene.children.length > 0) {
+      this.scene.remove(this.scene.children[0]);
+    }
+
+      let sliderValue = event.currentTarget.value;
+      let starFiles = [star00000, star01000, star02000, star03000, star04354];
+      // let starColors =
+      console.log(sliderValue);
+
+    // let obj = {starFile:  `star0${event.currentTarget.value}000`};
+    // // obj[`star0${event.currentTarget.value}000`]
+    // console.log(typeof obj.starFile)
+    // console.log(obj.starFile)
+    new Starfield(this.scene);
+    new Star(this.scene, starFiles[sliderValue]);
+    // this.createStar(starFiles[sliderValue], 0xff0000);
+    // this.createStar(star04354, 0xff0000);
+
   }
 
   init() {
@@ -63,9 +94,12 @@ class Universe {
       this.camera.updateProjectionMatrix();
     });
 
-    const controls = new THREE.OrbitControls(this.camera, this.renderer.domElement);
+    const controls = new THREE.OrbitControls(
+      this.camera,
+      this.renderer.domElement
+    );
     controls.autoRotate = true;
-    controls.autoRotateSpeed = 2.0; 
+    controls.autoRotateSpeed = 2.0;
     controls.update();
   }
 

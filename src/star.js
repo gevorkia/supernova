@@ -6,9 +6,10 @@ import { star03000 } from "../data/star_03000";
 import { star04354 } from "../data/star_04354";
 
 class Star {
-  constructor(scene) {
+  constructor(scene, timepoint) {
     this.scene = scene
-
+    this.timepoint = timepoint
+    this.createStar(timepoint, 0xfffa00);
       // each ms represented by a different color
       // this.createStar(star00000, 0x0200ff); //blue
       // this.createStar(star01000, 0x17ff00); // green
@@ -18,32 +19,32 @@ class Star {
 
       // this.createStar(star04354);
 
-      const slider = document.getElementById("timelapse-slider");
+      // const slider = document.getElementById("timelapse-slider");
+      // // slider.addEventListener("input", this.sliderChange.bind(this));
       // slider.addEventListener("input", this.sliderChange.bind(this));
-      slider.addEventListener("input", this.sliderChange.bind(this));
     }
     
-    sliderChange() {
-      console.log(event);
+    // sliderChange() {
+    //   console.log(event);
       
-      while (this.scene.children.length > 0) {
-        this.scene.remove(this.scene.children[0]);
-      }
+    //   while (this.scene.children.length > 0) {
+    //     this.scene.remove(this.scene.children[0]);
+    //   }
         
-        let sliderValue = event.currentTarget.value;
-        let starFiles = [star00000, star01000, star02000, star03000, star04354];
-        // let starColors = 
-        console.log(sliderValue);
+    //     let sliderValue = event.currentTarget.value;
+    //     let starFiles = [star00000, star01000, star02000, star03000, star04354];
+    //     // let starColors = 
+    //     console.log(sliderValue);
 
-      // let obj = {starFile:  `star0${event.currentTarget.value}000`};
-      // // obj[`star0${event.currentTarget.value}000`]
-      // console.log(typeof obj.starFile)
-      // console.log(obj.starFile)
+    //   // let obj = {starFile:  `star0${event.currentTarget.value}000`};
+    //   // // obj[`star0${event.currentTarget.value}000`]
+    //   // console.log(typeof obj.starFile)
+    //   // console.log(obj.starFile)
 
-      this.createStar(starFiles[sliderValue], 0xff0000);
-      // this.createStar(star04354, 0xff0000);
+    //   this.createStar(starFiles[sliderValue], 0xff0000);
+    //   // this.createStar(star04354, 0xff0000);
       
-    }
+    // }
   
   createStar(timepoint, hex) {
     // debugger
