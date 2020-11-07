@@ -16,8 +16,8 @@ class Universe {
     // this.createScene();
 
     // Create everything to be rendered
-    // new Starfield(this.scene);
-    // new Star(this.scene);
+    new Starfield(this.scene);
+    new Star(this.scene, star00000);
 
     const slider = document.getElementById("timelapse-slider");
     // // slider.addEventListener("input", this.sliderChange.bind(this));
@@ -63,9 +63,9 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.GridHelper(20, 20));
-    const axesHelper = new THREE.AxesHelper(5);
-    this.scene.add(axesHelper);
+    // this.scene.add(new THREE.GridHelper(20, 20));
+    // const axesHelper = new THREE.AxesHelper(5);
+    // this.scene.add(axesHelper);
 
     this.camera = new THREE.PerspectiveCamera(
       75,
@@ -75,7 +75,7 @@ class Universe {
     );
     this.camera.position.x = 1;
     this.camera.position.y = 1;
-    this.camera.position.z = 10;
+    this.camera.position.z = 20;
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
