@@ -44,14 +44,9 @@ class Universe {
   sliderChange() {
     // console.log(event);
 
-    console.log(this.scene.children);;
-    // while (this.scene.children.length > 1) {
-    //   this.scene.remove(this.scene.children[0]);
-    // }
+    // console.log(this.scene.children);;
 
-    // this.scene.children.forEach((child, i) => {
-      // this.scene.glremove(this.scene.children[0]);
-    // })
+    this.scene.remove(this.scene.children.pop());
 
       let sliderValue = event.currentTarget.value;
       let starFiles = [star00000, star01000, star02000, star03000, star04354];
