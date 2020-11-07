@@ -2,9 +2,7 @@ import * as THREE from "three";
 
 
 class Starfield {
-    constructor(scene) {
-        this.scene = scene;
-
+    constructor() {
         this.geometry = new THREE.Geometry();
         
         // populate geometry with vertices
@@ -42,9 +40,13 @@ class Starfield {
           blending: THREE.AdditiveBlending,
         });
 
-        let particles = new THREE.Points(this.geometry, material);
+        this.particles = new THREE.Points(this.geometry, material);
         // particles.position.set(1,1,1)
-        this.scene.add(particles);
+        // this.scene.add(particles);
+    }
+
+    addToScene(scene) {
+        scene.add(this.particles);
     }
 }
 

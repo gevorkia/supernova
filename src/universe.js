@@ -16,7 +16,10 @@ class Universe {
     // this.createScene();
 
     // Create everything to be rendered
-    new Starfield(this.scene);
+    this.backdrop = new Starfield();
+
+    this.backdrop.addToScene(this.scene);
+
     new Star(this.scene, star00000);
 
     const slider = document.getElementById("timelapse-slider");
@@ -39,24 +42,32 @@ class Universe {
   }
 
   sliderChange() {
-    console.log(event);
+    // console.log(event);
 
-    while (this.scene.children.length > 0) {
-      this.scene.remove(this.scene.children[0]);
-    }
+    console.log(this.scene.children);;
+    // while (this.scene.children.length > 1) {
+    //   this.scene.remove(this.scene.children[0]);
+    // }
+
+    // this.scene.children.forEach((child, i) => {
+      // this.scene.glremove(this.scene.children[0]);
+    // })
 
       let sliderValue = event.currentTarget.value;
       let starFiles = [star00000, star01000, star02000, star03000, star04354];
       // let starColors =
-      console.log(sliderValue);
+      // console.log(sliderValue);
 
     // let obj = {starFile:  `star0${event.currentTarget.value}000`};
     // // obj[`star0${event.currentTarget.value}000`]
     // console.log(typeof obj.starFile)
     // console.log(obj.starFile)
-    new Starfield(this.scene);
+    // new Starfield(this.scene);
+
+    // this.backdrop.addToScene(this.scene);
+
     new Star(this.scene, starFiles[sliderValue]);
-    this.scene.add(new THREE.GridHelper(20, 20));
+    // this.scene.add(new THREE.GridHelper(20, 20));
     // this.createStar(starFiles[sliderValue], 0xff0000);
     // this.createStar(star04354, 0xff0000);
 
