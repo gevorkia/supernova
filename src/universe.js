@@ -56,6 +56,7 @@ class Universe {
     // console.log(obj.starFile)
     new Starfield(this.scene);
     new Star(this.scene, starFiles[sliderValue]);
+    this.scene.add(new THREE.GridHelper(20, 20));
     // this.createStar(starFiles[sliderValue], 0xff0000);
     // this.createStar(star04354, 0xff0000);
 
@@ -63,7 +64,7 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    // this.scene.add(new THREE.GridHelper(20, 20));
+    this.scene.add(new THREE.GridHelper(20, 20));
     // const axesHelper = new THREE.AxesHelper(5);
     // this.scene.add(axesHelper);
 
@@ -74,7 +75,7 @@ class Universe {
       1000
     );
     this.camera.position.x = 1;
-    this.camera.position.y = 1;
+    this.camera.position.y = 3;
     this.camera.position.z = 20;
     this.camera.lookAt(this.scene.position);
 
