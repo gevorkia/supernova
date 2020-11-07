@@ -87,7 +87,6 @@ class Star {
 
   generateHeatMap(timepoint, value) {
     // debugger
-
     let starVals = [];
 
     timepoint.forEach((obj) => {

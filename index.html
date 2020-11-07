@@ -11,15 +11,22 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/102/three.js"></script>
         <div id="root"></div>
         <h1>Simulation of star using physical principality</h1>
-
-        <div className="slider-footer">
-            <input 
-                id="timelapse-slider" 
-                type="range" 
-                value="0" 
-                max="4.354" 
-                step="1"
-            >
+        <div class="footer">
+            <a class="play-button">
+                <!-- <img src="https://img.icons8.com/fluent-systems-regular/96/000000/play.png" /> -->
+                <img src="https://img.icons8.com/color/48/000000/play-button-circled.png" />
+                <!-- <img src="https://img.icons8.com/ios-filled/50/000000/play-button-circled.png" /> -->
+                
+            </a>
+            <div class="slider">
+                <input 
+                    id="timelapse-slider" 
+                    type="range" 
+                    value="0" 
+                    max="4.354" 
+                    step="1"
+                >
+            </div>
         </div>
         <div id="heatmap-bar" title="Change units to “K”" class="pq">
             <span class="temp-units" style="">MeV</span>
