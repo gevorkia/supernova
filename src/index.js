@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const universe = new Universe();
     
+    // const slider = document.getElementById("timelapse-slider");
+    // slider.addEventListener("input", sliderChange);
+
+    // function sliderChange() {
+    //   console.log(this.value);
+    // }
 //     // root.appendChild()
 
 // //    let cube = new Cube(root)

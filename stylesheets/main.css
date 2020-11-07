@@ -58,20 +58,78 @@ canvas {
     display: block;
 }
 
-#gameCanvas {
-    position:fixed;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-}
-
 h1 {
- position: absolute; 
- z-index: 1;
+ /* position: fixed;  */
+ z-index: 10;
  color: white;
+ font-weight: 800;
  vertical-align: middle;
  /* text-align: center; */
  display: flex;
  justify-content: center;
+}
+
+/* .slider-footer {
+
+} */
+.slider-footer {
+	position: absolute;
+    /* position: fixed; */
+    color: red;
+    /* left: 100px; */
+    margin-top: 90%;
+	position: absolute;
+	
+   /* position:fixed; */
+	/* left: 0;
+	right: 0; */
+	/* color: red;
+	height: 200px;
+    /* bottom: 0; */
+    /* z-index: 3;
+	font-size: 100%;
+	background-color: white; */ */
+    /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABOCAYAAADhG3wwAAAARUlEQVQYV2P4//8/AxMDCHBpOjKCWGCCCc5C4zLh4qJJMOOSZcbFRZX4D+IyYpNFYxGhBJtivJYTcD1+n2Pj4gxYSNgDAAdtBaOwcYKYAAAAAElFTkSuQmCC) 0 100% repeat-x; */
+    /* background-size: contain; */
+    /* background: linear-gradient(rgba(10,41,65,0),rgba(10,41,65,.6)); */
+}
+
+
+input[type=range] {
+	/* margin-top: 95%; */
+	position: fixed;
+	z-index: 1;
+    transition: opacity 2s;
+    box-sizing: border-box;
+    font-size: 1em;
+    line-height: .5em;
+    height: .5em;
+    background-color: white;
+    cursor: pointer;
+    /* -webkit-appearance: none; */
+    width: 30%;
+    /* margin: auto; */
+    left: 35%;
+    /* max-width: 80%; */
+    border-radius: 100px;
+    bottom: 4.5em;
+}
+
+#heatmap-bar {
+    position: absolute;
+    right: 2.5em;
+    z-index: 6;
+    line-height: 1.5em;
+    bottom: 7.5em;
+    width: 50px;
+    /* display: table-cell; */
+    background: #777;
+    background: linear-gradient(90deg,#555,#999,#555);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#l.pq {
+    cursor: pointer;
 }

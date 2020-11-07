@@ -8,7 +8,7 @@ import { star04354 } from "../data/star_04354";
 
 class Star {
   constructor(scene) {
-    (this.scene = scene),
+    this.scene = scene
       // this.createStar(star00000, 0xfffa00);
       // this.createStar(star01000);
       // this.createStar(star02000);
@@ -16,11 +16,11 @@ class Star {
       // this.createStar(star04354, 0xff0000);
 
       // each ms represented by a different color
-      this.createStar(star00000, 0x0200ff); //blue
-      this.createStar(star01000, 0x17ff00); // green
-      this.createStar(star02000, 0xfffa00); // yellow
-      this.createStar(star03000, 0xff8200); // orange
-      this.createStar(star04354, 0xff0000); // red
+      // this.createStar(star00000, 0x0200ff); //blue
+      // this.createStar(star01000, 0x17ff00); // green
+      // this.createStar(star02000, 0xfffa00); // yellow
+      // this.createStar(star03000, 0xff8200); // orange
+      // this.createStar(star04354, 0xff0000); // red
 
       // this.createStar(star04354);
   }
