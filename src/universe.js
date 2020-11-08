@@ -130,7 +130,7 @@ class Universe {
         this.timelapseIndex = (this.timelapseIndex + 1) % this.starSliderVals.length;
             $("#slider-range").val(value);
             // this.sliderChange.bind(this)();
-            this.renderStar(value);
+            this.renderStar(`${value}`);
             // this.slider.addEventListener("change", this.sliderChange.bind(this));
             // $("#slider-range").change(this.sliderChange.bind(this));
     }, 500);
@@ -179,6 +179,7 @@ class Universe {
 
   renderStar(sliderValue) {
     console.log("renderStar method called");
+    console.log(sliderValue)
     if (sliderValue === "0") {
       this.starReset();
       new Star(this.scene, star00000);
