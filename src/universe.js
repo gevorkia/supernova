@@ -4,9 +4,13 @@ import Starfield from "./backdrop";
 import Star from "./star";
 
 import { star00000 } from "../data/star_00000";
+import { star00500 } from "../data/star_00500";
 import { star01000 } from "../data/star_01000";
+import { star01500 } from "../data/star_01500";
 import { star02000 } from "../data/star_02000";
+import { star02500 } from "../data/star_02500";
 import { star03000 } from "../data/star_03000";
+import { star03500 } from "../data/star_03500";
 import { star04354 } from "../data/star_04354";
 
 
@@ -61,6 +65,11 @@ class Universe {
     document.getElementById("play-click").classList.add("play-btn-hide")
     // debugger
 
+    pauseBtn.addEventListener("click", () => {
+      document.getElementById("play-click").classList.remove("play-btn-hide");
+      pauseBtn.classList.add("pause-btn-hide");
+      pauseBtn.classList.remove("pause-btn-display");
+    });
 
     this.starFiles.forEach((timepoint, i) => {
       // for (let i=0; i<this.starFiles.length; i++) {
@@ -69,12 +78,7 @@ class Universe {
         setTimeout(() => {
           this.scene.remove(this.scene.children.pop());
           new Star(this.scene, timepoint);
-          pauseBtn.addEventListener("click", () => {
-            document
-              .getElementById("play-click")
-              .classList.remove("play-btn-hide");
-            pauseBtn.classList.add("pause-btn-hide");
-          });
+
         }, i * 500);      
     })
 

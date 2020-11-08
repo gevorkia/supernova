@@ -2,7 +2,7 @@ import numpy as np
 import h5py 
 # h5py is python wrapper for hdf5 files
 
-infile=h5py.File("../data/hdf5/part_03000.h5part", "r")
+infile=h5py.File("../data/hdf5/part_00500.h5part", "r")
 
 T = np.array(infile["Step#0"]["T_MeV"])
 x = np.array(infile["Step#0"]["x"])
@@ -10,7 +10,16 @@ y = np.array(infile["Step#0"]["y"])
 entropy = np.array(infile["Step#0"]["entropy"])
 
 # export as text file with columns of x, y, T, entropy
-np.savetxt("star_03000.txt", np.c_[x,y,T,entropy])  
+np.savetxt("star_00500.txt", np.c_[x,y,T,entropy])  
+
+Input = np.loadtxt("star_00500.txt")
+# raw data file => 0-last index of X, then Y, then T
+x=Input[:,0]   # all rows, index 0
+y=Input[:,1]
+t=Input[:,2]
+entropy=Input[:,3]
+
+# data_extraction % python ./star_hdf5_extractor.py
 
 # need to delimit w commas
 # 1. VSC find & replace all spaces with a comma (no space)
@@ -23,15 +32,6 @@ np.savetxt("star_03000.txt", np.c_[x,y,T,entropy])
 # 4.240041198730468750e+02,3.193525878906250000e+03,2.540372014045715332e-01,3.313353061676025391e+00, etc
 # output as => JSON - properties
 # settings: delimiter = comma
-
-Input = np.loadtxt("star_03000.txt")
-# raw data file => 0-last index of X, then Y, then T
-x=Input[:,0]   # all rows, index 0
-y=Input[:,1]
-t=Input[:,2]
-entropy=Input[:,3]
-
-# data_extraction % python ./star_hdf5_extractor.py
 
 # print x.shape  # (24968,)
 # print x.min()  # 0 km
