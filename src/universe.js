@@ -41,6 +41,21 @@ class Universe {
       star04354
     ];
 
+    this.starSliderVals = [
+      0,
+      500,
+      1000,
+      1500,
+      2000,
+      2500,
+      3000,
+      3500,
+      4000,
+      4400,
+    ];
+
+    this.timelapseIndex = 0;
+
     const animate = () => {
       requestAnimationFrame(animate);
       // creates a loop that will cause renderer to draw scene everytime it's refreshed (standard ~60fps)
@@ -76,29 +91,64 @@ class Universe {
       document.getElementById("play-click").classList.remove("play-btn-hide");
       pauseBtn.classList.add("pause-btn-hide");
       pauseBtn.classList.remove("pause-btn-display");
-    });
-
-    this.starFiles.forEach((timepoint, i) => {
-
-      const timer = setTimeout(() => {
-        this.starReset();
-        new Star(this.scene, timepoint);
-        // $("#slider-range").val(1.5);
-      }, i * 500);
       
-      pauseBtn.addEventListener("click", () => {
-        clearTimeout(timer)
-        // console.log(timer.getTimeLeft())
-      })
+      // Stop the interval
+      clearInterval(this.timelapseInterval);
     });
 
-    () => {
-      document.getElementById("play-click").classList.remove("play-btn-hide");
-    }
+    // this.starFiles.forEach((timepoint, i) => {
+    //   this.starSliderVals.forEach(value => {
+    //     setTimeout(() => {
+    //       this.starReset();
+    //       new Star(this.scene, timepoint);
+    //       $("#slider-range").val(value);
+    //     }, i * 500);
+    //   })
+
+    //   pauseBtn.addEventListener("click", () => {
+    //     clearTimeout(timer)
+    //     // console.log(timer.getTimeLeft())
+    //   })
+    // });
+
+    this.timelapseInterval = setInterval(() => {
+      console.log("ok", this.timelapseIndex);
+      console.log("my current star value is", this.starSliderVals[this.timelapseIndex]);
+
+      let value = this.starSliderVals[this.timelapseIndex];
+
+      // if ( this.timelapseIndex < this.starSliderVals.length) {
+      //   this.timelapseIndex += 1;
+      //       $("#slider-range").val(value);
+      //       // this.sliderChange.bind(this);
+      //       this.slider.addEventListener("input", this.sliderChange.bind(this));
+      //       // } else {
+      //         //   clearInterval(this.timelapseInterval);
+      //         //   this.timelapseInterval = 0;
+      //         //   this.reset();
+      //       }
+        this.timelapseIndex = (this.timelapseIndex + 1) % this.starSliderVals.length;
+            $("#slider-range").val(value);
+            // this.sliderChange.bind(this)();
+            this.renderStar(value);
+            // this.slider.addEventListener("change", this.sliderChange.bind(this));
+            // $("#slider-range").change(this.sliderChange.bind(this));
+    }, 500);
+
+      // this.starSliderVals.forEach((value, i) => {
+      //   setTimeout(() => {
+      //     $("#slider-range").val(value);
+      //     this.sliderChange.bind(this);
+      //   }, i * 500);
+      // });
+
+    // () => {
+    //   document.getElementById("play-click").classList.remove("play-btn-hide");
+    // }
   }
 
   reset() {
-    console.log("hi");
+    // console.log("hi");
     // this.init();
     this.scene.remove(this.scene.children.pop());
     new Star(this.scene, star00000);
@@ -109,14 +159,26 @@ class Universe {
     this.scene.remove(this.scene.children.pop());
   }
 
-  sliderChange() {
-    // console.log(event);
+
+
+  sliderChange(event) {
+    // event.preventDefault();
+    console.log("sliderChange method called");
 
     // console.log(this.scene.children);;
 
     let sliderValue = event.currentTarget.value;
     console.log(sliderValue);
 
+    this.renderStar(sliderValue);
+
+    // this.backdrop.addToScene(this.scene);
+
+    // new Star(this.scene, this.starFiles[sliderValue]);
+  }
+
+  renderStar(sliderValue) {
+    console.log("renderStar method called");
     if (sliderValue === "0") {
       this.starReset();
       new Star(this.scene, star00000);
@@ -148,10 +210,6 @@ class Universe {
       this.starReset();
       new Star(this.scene, star04354);
     }
-
-    // this.backdrop.addToScene(this.scene);
-
-    // new Star(this.scene, this.starFiles[sliderValue]);
   }
 
   init() {

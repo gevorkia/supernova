@@ -22,10 +22,13 @@ canvas {
 
 h1 {
  color: rgb(165, 156, 138);
- padding: 25px;
+ padding: 20px;
  font: 400 20px Arial;
- font-family:
  text-align: center; 
+}
+
+sub {
+    font-size: 13px;
 }
 
 .footer {
