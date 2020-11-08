@@ -12,29 +12,33 @@
         <div id="root"></div>
         <h1>Simulation of star using physical principality</h1>
         <div class="footer">
-            <a class="play-button">
-                <!-- <img src="https://img.icons8.com/fluent-systems-regular/96/000000/play.png" /> -->
-                <img src="https://img.icons8.com/color/48/000000/play-button-circled.png" />
-                <!-- <img src="https://img.icons8.com/ios-filled/50/000000/play-button-circled.png" /> -->
-                
-            </a>
-            <div class="slider">
-                <input 
-                    id="timelapse-slider" 
-                    type="range" 
-                    value="0" 
-                    max="4.354" 
-                    step="1"
-                >
+            <div class="play-button-wrapper">
+                <a class="play-button">
+                    <!-- <img src="https://img.icons8.com/fluent-systems-regular/96/000000/play.png" /> -->
+                    <img src="https://img.icons8.com/color/48/000000/play-button-circled.png" />
+                    <!-- <img src="https://img.icons8.com/ios-filled/50/000000/play-button-circled.png" /> -->    
+                </a>
+            </div>
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <input 
+                        id="timelapse-slider" 
+                        type="range" 
+                        value="0" 
+                        max="4.354" 
+                        step="1"
+                    >
+                </div>
             </div>
         </div>
         <div id="heatmap-bar" title="Change units to “K”" class="pq">
-            <span class="temp-units" style="">MeV</span>
-            <span class="heatmap" style="background: red; color:white;">90</span>
-            <span class="heatmap" style="background: orange; color: rgb(0, 0, 0);">70</span>
-            <span class="heatmap" style="background: rgba(235, 211, 53, 0.92); color: rgb(0, 0, 0);">60</span>
-            <span class="heatmap" style="background: green; color: white;">30</span>
-            <span class="heatmap" style="background: blue; color: white;">20</span>
+            <span class="temp-units" style="">T(MeV)</span>
+            <!-- Entropy (K_B/baryon) -->
+            <span class="heatmap" style="background: red; color:white; padding-left: 6px">30+</span>
+            <span class="heatmap" style="background: orange; color: rgb(0, 0, 0);">24</span>
+            <span class="heatmap" style="background: rgba(235, 211, 53, 0.92); color: rgb(0, 0, 0);">18</span>
+            <span class="heatmap" style="background: green; color: white;">12</span>
+            <span class="heatmap" style="background: blue; color: white;">6</span>
             
         </div>
         <script>

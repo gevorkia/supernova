@@ -79,11 +79,23 @@ h1 {
     bottom: 2.5rem;
 }
 
-#timelapse-slider:hover {
-
+.play-button-wrapper {
+    display: flex;
+    flex: 0.7;
+    justify-content: flex-end;
 }
+
+.slider-wrapper {
+    display: flex;
+    flex: 1;
+}
+
 .slider {
     border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
     /* opacity: 0; */
     /* fill: black; */
     /* background-color: red; */
@@ -108,6 +120,8 @@ h1 {
     /* background: linear-gradient(rgba(10,41,65,0),rgba(10,41,65,.6)); */
 }
 
+
+
 .play-button {
     border: 2px solid blueviolet;
     display: flex;
@@ -115,19 +129,16 @@ h1 {
     /* position: absolute; */
     z-index: 10;
     bottom: 2.4rem;
-    left: 28%;
+    /* left: 28%; */
 }
 
 .play-button img {
     /* border: 2px solid green; */
-    /* background: white; */
-    /* z-index: 10; */
     cursor: pointer;
-    /* color: white; */
 }
 
 input[type=range] {
-	/* position: fixed; */
+    /* position: fixed; */
 	z-index: 1;
     transition: opacity 2s;
     box-sizing: border-box;
@@ -141,6 +152,10 @@ input[type=range] {
     bottom: 4.5em;
     /* -webkit-appearance:none; */
     -moz-appearance:none;
+    width: 80%;
+    color: red;
+    /* align-content: center;
+    vertical-align: middle; */
 }
 
 input[type=range]:focus { 
@@ -163,7 +178,7 @@ input[type=range]::active {
     z-index: 6;
     line-height: 1.5em;
     bottom: 7.5em;
-    width: 50px;
+    width: 60px;
     /* display: table-cell; */
     background: #777;
     background: linear-gradient(90deg,#555,#999,#555);
