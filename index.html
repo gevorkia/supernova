@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="stylesheets/main.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="dist/bundle.js" type="application/javascript"></script>
     </head>
     <body>
@@ -13,14 +14,14 @@
         <h1>Simulation of star using physical principality</h1>
         <div class="footer">
             <div class="play-button-wrapper">
-                <a class="play-button">
+                <a id="play-button">
                     <img src="https://img.icons8.com/nolan/64/play-button-circled.png" />
                 </a>
             </div>
             <div class="slider-wrapper">
-                <div class="slider">
+                <div id="slider">
                     <input 
-                        id="timelapse-slider" 
+                        id="slider-range" 
                         type="range" 
                         value="0" 
                         max="4.354" 
@@ -29,7 +30,7 @@
                 </div>
             </div>
             <div class="reset-btn-wrapper">
-                <svg class="reset-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 172 172"
+                <svg id="reset-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0 0 172 172"
                     style=" fill:#000000;">
                     <defs>
                         <radialGradient cx="101.34742" cy="90.02767" r="78.05933" gradientUnits="userSpaceOnUse"

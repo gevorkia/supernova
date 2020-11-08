@@ -11,9 +11,8 @@ import { star04354 } from "../data/star_04354";
 
 class Universe {
   constructor() {
+    // initialize scene
     this.init();
-
-    // this.createScene();
 
     // Create everything to be rendered
     this.backdrop = new Starfield();
@@ -22,9 +21,12 @@ class Universe {
 
     new Star(this.scene, star00000);
 
-    const slider = document.getElementById("timelapse-slider");
+    const slider = document.getElementById("slider-range");
     // // slider.addEventListener("input", this.sliderChange.bind(this));
     slider.addEventListener("input", this.sliderChange.bind(this));
+
+    const resetBtn =  document.getElementById("reset-btn");
+    resetBtn.addEventListener("click", this.reset.bind(this));
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -39,6 +41,13 @@ class Universe {
     };
 
     animate();
+  }
+
+  reset() {
+    console.log("hi")
+    // this.init();
+    this.scene.remove(this.scene.children.pop());
+    new Star(this.scene, star00000);
   }
 
   sliderChange() {
@@ -110,26 +119,7 @@ class Universe {
     controls.update();
   }
 
-  // createScene() {
-  //   let geometry = new THREE.SphereGeometry(0.6, 10, 10);
-  //   let material = new THREE.MeshLambertMaterial({ color: 0xffcc00 });
-  //   this.mesh = new THREE.Mesh(geometry, material);
-
-  //   this.mesh.position.x = -2;
-  //   this.mesh.position.set(2, 2, -2); // (x, y, z)
-  //   this.mesh.rotation.set(45, 0, 0); // static rotation
-  //   this.mesh.scale.set(1, 2, 1);
-  //   this.scene.add(this.mesh);
-
-  //   let meshX = -10;
-  //   for (let i = 0; i < 15; i++) {
-  //     this.mesh = new THREE.Mesh(geometry, material);
-  //     this.mesh.position.x += (Math.random() - 0.5) * 10;
-  //     this.mesh.position.y += (Math.random() - 0.5) * 10;
-  //     this.mesh.position.z += (Math.random() - 0.5) * 10;
-  //     this.scene.add(this.mesh);
-  //     meshX += 1;
-  //   }
+ 
 
   //   const light = new THREE.AmbientLight(0x404040, 100);
   //   // const light = new THREE.PointLight(0xffffff, 1, 500);
