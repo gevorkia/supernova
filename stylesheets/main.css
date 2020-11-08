@@ -70,7 +70,7 @@ h1 {
 }
 
 .footer {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     position: absolute;
     display: flex;
     justify-content: center;
@@ -81,21 +81,22 @@ h1 {
 
 .play-button-wrapper {
     display: flex;
-    flex: 0.7;
+    flex: 1;
     justify-content: flex-end;
+    align-items: center;
 }
 
 .slider-wrapper {
     display: flex;
-    flex: 1;
+    flex: 0.6;
 }
 
 .slider {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
+    width: 100%;
     /* opacity: 0; */
     /* fill: black; */
     /* background-color: red; */
@@ -123,23 +124,25 @@ h1 {
 
 
 .play-button {
-    border: 2px solid blueviolet;
+    /* border: 2px solid blueviolet; */
     display: flex;
     flex-direction: column;
     /* position: absolute; */
-    z-index: 10;
+    /* z-index: 10; */
     bottom: 2.4rem;
     /* left: 28%; */
 }
 
 .play-button img {
     /* border: 2px solid green; */
+    width: 43px;
+    height: 43px;
     cursor: pointer;
 }
 
 input[type=range] {
     /* position: fixed; */
-	z-index: 1;
+	/* z-index: 1; */
     transition: opacity 2s;
     box-sizing: border-box;
     font-size: 1em;
@@ -148,14 +151,10 @@ input[type=range] {
     cursor: pointer;
     width: 30%;
     left: 35%;
-    /* border-radius: 100px; */
     bottom: 4.5em;
     /* -webkit-appearance:none; */
     -moz-appearance:none;
     width: 80%;
-    color: red;
-    /* align-content: center;
-    vertical-align: middle; */
 }
 
 input[type=range]:focus { 
@@ -171,6 +170,18 @@ input[type=range]::active {
   outline: none;
 }
 
+.reset-btn-wrapper {
+    /* border: 2px solid red; */
+    display: flex;
+    /* flex: 0; */
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.reset-btn {
+    cursor: pointer;
+}
 
 #heatmap-bar {
     position: absolute;
