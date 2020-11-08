@@ -2,7 +2,7 @@ import numpy as np
 import h5py 
 # h5py is python wrapper for hdf5 files
 
-infile=h5py.File("../data/hdf5/part_00500.h5part", "r")
+infile=h5py.File("../data/hdf5/part_04000.h5part", "r")
 
 T = np.array(infile["Step#0"]["T_MeV"])
 x = np.array(infile["Step#0"]["x"])
@@ -10,9 +10,13 @@ y = np.array(infile["Step#0"]["y"])
 entropy = np.array(infile["Step#0"]["entropy"])
 
 # export as text file with columns of x, y, T, entropy
-np.savetxt("star_00500.txt", np.c_[x,y,T,entropy])  
+np.savetxt("star_04000.txt", np.c_[x,y,T,entropy])  
 
-Input = np.loadtxt("star_00500.txt")
+# to extract time (only) from file
+# Time = np.array(infile["Time"])
+# np.savetxt("star_04000.txt", np.c_[Time])  
+
+Input = np.loadtxt("star_04000.txt")
 # raw data file => 0-last index of X, then Y, then T
 x=Input[:,0]   # all rows, index 0
 y=Input[:,1]

@@ -11,6 +11,7 @@ import { star02000 } from "../data/star_02000";
 import { star02500 } from "../data/star_02500";
 import { star03000 } from "../data/star_03000";
 import { star03500 } from "../data/star_03500";
+import { star04000 } from "../data/star_04000";
 import { star04354 } from "../data/star_04354";
 
 
@@ -140,9 +141,9 @@ class Universe {
     } else if (sliderValue === "3500") {
       this.starReset();
       new Star(this.scene, star03500);
-      // } else if (sliderValue === "4000") {
-      //   this.starReset();
-      //   new Star(this.scene, star04000);
+    } else if (sliderValue === "4000") {
+      this.starReset();
+      new Star(this.scene, star04000);
     } else if (sliderValue === "4400") {
       this.starReset();
       new Star(this.scene, star04354);

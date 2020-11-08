@@ -10,12 +10,15 @@ canvas {
 h1 {
  position: fixed; 
  z-index: 10;
- color: white;
- font-weight: 800;
+ color: grey;
+ /* font-weight: 800; */
  vertical-align: middle;
  /* text-align: center; */
  display: flex;
  justify-content: center;
+ padding: 25px;
+ font-family: "Nunito",sans-serif;
+ font-size: 25px;
 }
 
 .footer {
