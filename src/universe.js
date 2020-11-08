@@ -28,7 +28,17 @@ class Universe {
 
     this.eventListeners();
 
-    this.starFiles = [star00000, star01000, star02000, star03000, star04354];
+    this.starFiles = [
+      star00000, 
+      star00500, 
+      star01000, 
+      star01500, 
+      star02000, 
+      star02500, 
+      star03000, 
+      star03500, 
+      star04354
+    ];
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -38,17 +48,14 @@ class Universe {
       // this.camera.position.z += 0.02;
 
       this.renderer.render(this.scene, this.camera);
-      // const controls = new THREE.OrbitControls(this.camera,this.renderer.domElement);
-      // controls.update();
     };
 
     animate();
   }
 
   eventListeners() {
-    const slider = document.getElementById("slider-range");
-    // // slider.addEventListener("input", this.sliderChange.bind(this));
-    slider.addEventListener("input", this.sliderChange.bind(this));
+    this.slider = document.getElementById("slider-range");
+    this.slider.addEventListener("input", this.sliderChange.bind(this));
 
     const resetBtn = document.getElementById("reset-btn");
     resetBtn.addEventListener("click", this.reset.bind(this));
@@ -58,12 +65,11 @@ class Universe {
   }
 
   timelapse() {
-    const pauseBtn = document.getElementById("pause-btn")
-    pauseBtn.classList.add("pause-btn-display")
+    const pauseBtn = document.getElementById("pause-btn");
+    pauseBtn.classList.add("pause-btn-display");
     pauseBtn.classList.remove("pause-btn-hide");
-    // debugger
-    document.getElementById("play-click").classList.add("play-btn-hide")
-    // debugger
+
+    document.getElementById("play-click").classList.add("play-btn-hide");
 
     pauseBtn.addEventListener("click", () => {
       document.getElementById("play-click").classList.remove("play-btn-hide");
@@ -72,24 +78,34 @@ class Universe {
     });
 
     this.starFiles.forEach((timepoint, i) => {
-      // for (let i=0; i<this.starFiles.length; i++) {
-        // new Star(this.scene, timepoint[i]);
-        
-        setTimeout(() => {
-          this.scene.remove(this.scene.children.pop());
-          new Star(this.scene, timepoint);
 
-        }, i * 500);      
-    })
+      const timer = setTimeout(() => {
+        this.starReset();
+        new Star(this.scene, timepoint);
+        // $("#slider-range").val(1.5);
+      }, i * 500);
+      
+      pauseBtn.addEventListener("click", () => {
+        clearTimeout(timer)
+        // console.log(timer.getTimeLeft())
+      })
+    });
 
+    () => {
+      document.getElementById("play-click").classList.remove("play-btn-hide");
+    }
   }
 
   reset() {
-    console.log("hi")
+    console.log("hi");
     // this.init();
     this.scene.remove(this.scene.children.pop());
     new Star(this.scene, star00000);
     $("#slider-range").val(0);
+  }
+
+  starReset() {
+    this.scene.remove(this.scene.children.pop());
   }
 
   sliderChange() {
@@ -97,26 +113,44 @@ class Universe {
 
     // console.log(this.scene.children);;
 
-    this.scene.remove(this.scene.children.pop());
+    let sliderValue = event.currentTarget.value;
+    console.log(sliderValue);
 
-      let sliderValue = event.currentTarget.value;
-      
-      // let starColors =
-      // console.log(sliderValue);
-
-    // let obj = {starFile:  `star0${event.currentTarget.value}000`};
-    // // obj[`star0${event.currentTarget.value}000`]
-    // console.log(typeof obj.starFile)
-    // console.log(obj.starFile)
-    // new Starfield(this.scene);
+    if (sliderValue === "0") {
+      this.starReset();
+      new Star(this.scene, star00000);
+    } else if (sliderValue === "500") {
+      this.starReset();
+      new Star(this.scene, star00500);
+    } else if (sliderValue === "1000") {
+      this.starReset();
+      new Star(this.scene, star01000);
+    } else if (sliderValue === "1500") {
+      this.starReset();
+      new Star(this.scene, star01500);
+    } else if (sliderValue === "2000") {
+      this.starReset();
+      new Star(this.scene, star02000);
+    } else if (sliderValue === "2500") {
+      this.starReset();
+      new Star(this.scene, star02500);
+    } else if (sliderValue === "3000") {
+      this.starReset();
+      new Star(this.scene, star03000);
+    } else if (sliderValue === "3500") {
+      this.starReset();
+      new Star(this.scene, star03500);
+      // } else if (sliderValue === "4000") {
+      //   this.starReset();
+      //   new Star(this.scene, star04000);
+    } else if (sliderValue === "4400") {
+      this.starReset();
+      new Star(this.scene, star04354);
+    }
 
     // this.backdrop.addToScene(this.scene);
 
-    new Star(this.scene, this.starFiles[sliderValue]);
-    // this.scene.add(new THREE.GridHelper(20, 20));
-    // this.createStar(starFiles[sliderValue], 0xff0000);
-    // this.createStar(star04354, 0xff0000);
-
+    // new Star(this.scene, this.starFiles[sliderValue]);
   }
 
   init() {
@@ -160,8 +194,6 @@ class Universe {
     controls.autoRotateSpeed = 2.0;
     controls.update();
   }
-
- 
 
   //   const light = new THREE.AmbientLight(0x404040, 100);
   //   // const light = new THREE.PointLight(0xffffff, 1, 500);
