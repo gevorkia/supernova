@@ -7,18 +7,29 @@ canvas {
     display: block;
 }
 
-h1 {
- position: fixed; 
- z-index: 10;
- color: grey;
- /* font-weight: 800; */
- vertical-align: middle;
- /* text-align: center; */
+.header-wrapper {
+ position: absolute; 
+ z-index: 1;
  display: flex;
  justify-content: center;
+  /* margin: 0 auto; */
+    position: absolute;
+    left: 50%;
+    top: 1vw;
+    transform: translateX(-50%);
+    /* box-sizing: border-box; */
+}
+
+h1 {
+ color: rgb(165, 156, 138);
+ 
  padding: 25px;
- font-family: "Nunito",sans-serif;
- font-size: 25px;
+ /* font-family: "Nunito",sans-serif; */
+ font-family: "Exo",Helvetica,Arial,sans-serif;
+ font-size: 26px;
+ text-align: center;
+ /* margin-left: 30%; */
+    
 }
 
 .footer {

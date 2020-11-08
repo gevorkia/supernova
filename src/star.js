@@ -74,7 +74,7 @@ class Star {
     // let texture = THREE.ImageUtils.loadTexture("images/mapa.png");
 
     let material = new THREE.PointsMaterial({
-      size: 0.1,
+      size: 0.05,
       color: hex,
       map: texture,
       opacity: 1,
