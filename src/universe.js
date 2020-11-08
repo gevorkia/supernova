@@ -54,6 +54,14 @@ class Universe {
   }
 
   timelapse() {
+    const pauseBtn = document.getElementById("pause-btn")
+    pauseBtn.classList.add("pause-btn-display")
+    pauseBtn.classList.remove("pause-btn-hide");
+    // debugger
+    document.getElementById("play-click").classList.add("play-btn-hide")
+    // debugger
+
+
     this.starFiles.forEach((timepoint, i) => {
       // for (let i=0; i<this.starFiles.length; i++) {
         // new Star(this.scene, timepoint[i]);
@@ -61,8 +69,15 @@ class Universe {
         setTimeout(() => {
           this.scene.remove(this.scene.children.pop());
           new Star(this.scene, timepoint);
+          pauseBtn.addEventListener("click", () => {
+            document
+              .getElementById("play-click")
+              .classList.remove("play-btn-hide");
+            pauseBtn.classList.add("pause-btn-hide");
+          });
         }, i * 500);      
     })
+
   }
 
   reset() {

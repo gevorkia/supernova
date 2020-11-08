@@ -140,6 +140,18 @@ h1 {
     cursor: pointer;
 }
 
+.play-btn-hide {
+    display: none;
+}
+
+.pause-btn-hide {
+    display: none;
+}
+
+.pause-btn-display {
+    display: block;
+    cursor: pointer;
+}
 
 
 input[type=range] {
