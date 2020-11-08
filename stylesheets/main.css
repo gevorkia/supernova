@@ -125,20 +125,22 @@ h1 {
 
 #play-button {
     /* border: 2px solid blueviolet; */
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     /* position: absolute; */
     /* z-index: 10; */
     bottom: 2.4rem;
     /* left: 28%; */
 }
 
-.play-button img {
+#play-button img {
     /* border: 2px solid green; */
-    width: 43px;
-    height: 43px;
+    width: 44px;
+    height: 44px;
     cursor: pointer;
 }
+
+
 
 input[type=range] {
     /* position: fixed; */

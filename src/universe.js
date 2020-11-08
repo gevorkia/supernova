@@ -9,6 +9,7 @@ import { star02000 } from "../data/star_02000";
 import { star03000 } from "../data/star_03000";
 import { star04354 } from "../data/star_04354";
 
+
 class Universe {
   constructor() {
     // initialize scene
@@ -23,6 +24,7 @@ class Universe {
 
     this.eventListeners();
 
+    this.starFiles = [star00000, star01000, star02000, star03000, star04354];
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -46,6 +48,21 @@ class Universe {
 
     const resetBtn = document.getElementById("reset-btn");
     resetBtn.addEventListener("click", this.reset.bind(this));
+
+    const playBtn = document.getElementById("play-click");
+    playBtn.addEventListener("click", this.timelapse.bind(this));
+  }
+
+  timelapse() {
+    this.starFiles.forEach((timepoint, i) => {
+      // for (let i=0; i<this.starFiles.length; i++) {
+        // new Star(this.scene, timepoint[i]);
+        
+        setTimeout(() => {
+          this.scene.remove(this.scene.children.pop());
+          new Star(this.scene, timepoint);
+        }, i * 500);      
+    })
   }
 
   reset() {
@@ -64,7 +81,7 @@ class Universe {
     this.scene.remove(this.scene.children.pop());
 
       let sliderValue = event.currentTarget.value;
-      let starFiles = [star00000, star01000, star02000, star03000, star04354];
+      
       // let starColors =
       // console.log(sliderValue);
 
@@ -76,7 +93,7 @@ class Universe {
 
     // this.backdrop.addToScene(this.scene);
 
-    new Star(this.scene, starFiles[sliderValue]);
+    new Star(this.scene, this.starFiles[sliderValue]);
     // this.scene.add(new THREE.GridHelper(20, 20));
     // this.createStar(starFiles[sliderValue], 0xff0000);
     // this.createStar(star04354, 0xff0000);
