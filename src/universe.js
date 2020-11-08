@@ -21,12 +21,8 @@ class Universe {
 
     new Star(this.scene, star00000);
 
-    const slider = document.getElementById("slider-range");
-    // // slider.addEventListener("input", this.sliderChange.bind(this));
-    slider.addEventListener("input", this.sliderChange.bind(this));
+    this.eventListeners();
 
-    const resetBtn =  document.getElementById("reset-btn");
-    resetBtn.addEventListener("click", this.reset.bind(this));
 
     const animate = () => {
       requestAnimationFrame(animate);
@@ -43,11 +39,21 @@ class Universe {
     animate();
   }
 
+  eventListeners() {
+    const slider = document.getElementById("slider-range");
+    // // slider.addEventListener("input", this.sliderChange.bind(this));
+    slider.addEventListener("input", this.sliderChange.bind(this));
+
+    const resetBtn = document.getElementById("reset-btn");
+    resetBtn.addEventListener("click", this.reset.bind(this));
+  }
+
   reset() {
     console.log("hi")
     // this.init();
     this.scene.remove(this.scene.children.pop());
     new Star(this.scene, star00000);
+    $("#slider-range").val(0);
   }
 
   sliderChange() {
