@@ -96,59 +96,24 @@ class Universe {
       clearInterval(this.timelapseInterval);
     });
 
-    // this.starFiles.forEach((timepoint, i) => {
-    //   this.starSliderVals.forEach(value => {
-    //     setTimeout(() => {
-    //       this.starReset();
-    //       new Star(this.scene, timepoint);
-    //       $("#slider-range").val(value);
-    //     }, i * 500);
-    //   })
-
-    //   pauseBtn.addEventListener("click", () => {
-    //     clearTimeout(timer)
-    //     // console.log(timer.getTimeLeft())
-    //   })
-    // });
-
     this.timelapseInterval = setInterval(() => {
       console.log("ok", this.timelapseIndex);
       console.log("my current star value is", this.starSliderVals[this.timelapseIndex]);
 
       let value = this.starSliderVals[this.timelapseIndex];
 
-      // if ( this.timelapseIndex < this.starSliderVals.length) {
-      //   this.timelapseIndex += 1;
-      //       $("#slider-range").val(value);
-      //       // this.sliderChange.bind(this);
-      //       this.slider.addEventListener("input", this.sliderChange.bind(this));
-      //       // } else {
-      //         //   clearInterval(this.timelapseInterval);
-      //         //   this.timelapseInterval = 0;
-      //         //   this.reset();
-      //       }
         this.timelapseIndex = (this.timelapseIndex + 1) % this.starSliderVals.length;
             $("#slider-range").val(value);
-            // this.sliderChange.bind(this)();
             this.renderStar(`${value}`);
+            // event listeners don't work on programmatic slider changes
+            // this.sliderChange.bind(this)();
             // this.slider.addEventListener("change", this.sliderChange.bind(this));
             // $("#slider-range").change(this.sliderChange.bind(this));
     }, 500);
 
-      // this.starSliderVals.forEach((value, i) => {
-      //   setTimeout(() => {
-      //     $("#slider-range").val(value);
-      //     this.sliderChange.bind(this);
-      //   }, i * 500);
-      // });
-
-    // () => {
-    //   document.getElementById("play-click").classList.remove("play-btn-hide");
-    // }
   }
 
   reset() {
-    // console.log("hi");
     // this.init();
     this.scene.remove(this.scene.children.pop());
     new Star(this.scene, star00000);
@@ -162,19 +127,13 @@ class Universe {
 
 
   sliderChange(event) {
-    // event.preventDefault();
-    console.log("sliderChange method called");
-
+    // console.log("sliderChange method called");
     // console.log(this.scene.children);;
 
     let sliderValue = event.currentTarget.value;
-    console.log(sliderValue);
+    // console.log(sliderValue);
 
     this.renderStar(sliderValue);
-
-    // this.backdrop.addToScene(this.scene);
-
-    // new Star(this.scene, this.starFiles[sliderValue]);
   }
 
   renderStar(sliderValue) {
@@ -215,7 +174,7 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.GridHelper(20, 20));
+    this.scene.add(new THREE.GridHelper(3, 14));
     // const axesHelper = new THREE.AxesHelper(5);
     // this.scene.add(axesHelper);
 
@@ -227,7 +186,7 @@ class Universe {
     );
     this.camera.position.x = 1;
     this.camera.position.y = 3;
-    this.camera.position.z = 20;
+    this.camera.position.z = 16;
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -253,13 +212,14 @@ class Universe {
     controls.autoRotate = true;
     controls.autoRotateSpeed = 2.0;
     controls.update();
+
+    // const light = new THREE.AmbientLight(0x404040, 100);
+    const light = new THREE.PointLight(0xffffff, 1, 500);
+    light.position.set(10, 0, 25);
+    this.scene.add(light);
   }
 
-  //   const light = new THREE.AmbientLight(0x404040, 100);
-  //   // const light = new THREE.PointLight(0xffffff, 1, 500);
-  //   // light.position.set(10, 0, 25);
-  //   this.scene.add(light);
-  // }
+  
 }
 
 export default Universe;
