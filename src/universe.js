@@ -174,7 +174,7 @@ class Universe {
 
   init() {
     this.scene = new THREE.Scene();
-    this.scene.add(new THREE.GridHelper(18, 16));
+    this.scene.add(new THREE.GridHelper(16, 16));
     // const axesHelper = new THREE.AxesHelper(5);
     // this.scene.add(axesHelper);
 
@@ -185,8 +185,8 @@ class Universe {
       1000
     );
     this.camera.position.x = 1;
-    this.camera.position.y = 3;
-    this.camera.position.z = 17;
+    this.camera.position.y = 0;
+    this.camera.position.z = 12;
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
