@@ -72,7 +72,7 @@ class Universe {
 
   modal() {
     // Get the modal
-    console.log("modal fxn")
+    // console.log("modal fxn")
     var modal = document.getElementById("myModal");
 
     // Get the button that opens the modal
@@ -127,8 +127,8 @@ class Universe {
     });
 
     this.timelapseInterval = setInterval(() => {
-      console.log("ok", this.timelapseIndex);
-      console.log("my current star value is", this.starSliderVals[this.timelapseIndex]);
+      // console.log("ok", this.timelapseIndex);
+      // console.log("my current star value is", this.starSliderVals[this.timelapseIndex]);
 
       let value = this.starSliderVals[this.timelapseIndex];
 
@@ -168,8 +168,8 @@ class Universe {
   }
 
   renderStar(sliderValue) {
-    console.log("renderStar method called");
-    console.log(sliderValue)
+    // console.log("renderStar method called");
+    // console.log(sliderValue)
     if (sliderValue === "0") {
       this.starReset();
       new Star(this.scene, star00000);
