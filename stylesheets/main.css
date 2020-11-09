@@ -120,7 +120,7 @@ sub {
     position: absolute;
     display: flex;
     justify-content: center;
-    z-index: 3;
+    z-index: 0.2;
     width: 100%;
     bottom: 2.5rem;
 }
@@ -242,32 +242,85 @@ input[type=range]::active {
 
 
 
-
 /* The Modal (background) */
 .modal {
   display: none; 
   position: fixed;
-  z-index: 2; 
+  z-index: 10; 
   left: 0;
   top: 0;
+  margin: auto;
   width: 100%; 
   height: 100%; 
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  
 }
 
 /* Modal Content/Box */
 .modal-content {
   background-color: #f7f5f0;
   opacity: 0.8;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  margin: 7% auto; /* 15% from the top and centered */
+  padding-top: 20px;
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  padding-bottom: 30px; 
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-  font-size: 16px;
-  font-family: Arial;
-  text-align: center;
+  width: 35%; /* Could be more or less, depending on screen size */
+  font-size: 18px;
+  /* font-family: Arial; */
+  font-family: sans-serif;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 23px;
+  /* box-shadow: 0 8px 16px 0 rgba(235, 247, 165, 0.954), 0 0 4px 0 rgba(166, 165, 247, 0.954); */
+  /* border-radius: 8px; */
+}
+
+.about-blurb {
+    width: 88%;
+    margin: auto;
+    /* border-bottom: 2px dashed black; */
+}
+
+.about-mid {
+    background-color: rgb(252, 214, 220);
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: auto;
+}
+
+.modal-header {
+    text-align: center;
+    font-weight: 400;
+    padding-top: 14px;
+}
+
+/* .about-mid-thanks {
+    background-color: rgb(195, 225, 252);
+    padding-top: 14px;
+    width: 87%;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: auto;
+} */
+
+.about-us {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: auto;
+}
+
+.modal-links {
+    text-decoration: none;
+    font-weight: 500;
+    color: rgb(32, 58, 85)
+}
+
+.modal-links:hover {
+    color: rgba(58, 116, 58, 0.694);
 }
 
 /* The Close Button */
@@ -276,6 +329,7 @@ input[type=range]::active {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  padding: 20px;
 }
 
 .close:hover,
