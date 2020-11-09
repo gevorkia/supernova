@@ -258,8 +258,8 @@ input[type=range]::active {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #f7f5f0;
-  opacity: 0.8;
+  background-color: #f7f0de;
+  opacity: 0.9;
   margin: 7% auto; /* 15% from the top and centered */
   padding-top: 20px;
   /* padding-left: 10px; */
@@ -315,7 +315,7 @@ input[type=range]::active {
 .modal-links {
     text-decoration: none;
     font-weight: 500;
-    color: rgb(5, 84, 255)
+    color: rgb(65, 125, 75)
 }
 
 .modal-links:hover {
