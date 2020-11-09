@@ -32,7 +32,7 @@ h1 {
 }
 
 sub {
-    font-size: 13px;
+    /* font-size: 13px; */
 }
 
 #header-right {
@@ -51,11 +51,13 @@ sub {
 #about-btn {
     /* border: 2px solid red; */
     /* width: 100%; */
+    border: 1px solid transparent;
     cursor: pointer;
     background-color: rgb(176, 184, 230);
     font-family: Arial;
     /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 18px;
+    font-weight: 550;
     opacity: 0.6;
     width: 70px;
     margin-top: 2px;
@@ -64,6 +66,57 @@ sub {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#about-btn:hover {
+    cursor: pointer;
+    background-color: rgb(242, 189, 247);
+    border: 1px solid rgb(216, 152, 222);
+    color: black;
+    transition: all 0.4s ease;
+}
+
+#about-btn:focus {
+    outline: none;
+}
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .contact-icons {
