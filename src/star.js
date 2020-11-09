@@ -9,7 +9,7 @@ class Star {
   constructor(scene, timepoint) {
     this.scene = scene
     this.timepoint = timepoint
-    this.createStar(timepoint, 0xfffa00);
+    this.createStar(timepoint, 0xff8200);
       // each ms represented by a different color
       // this.createStar(star00000, 0x0200ff); //blue
       // this.createStar(star01000, 0x17ff00); // green
@@ -50,8 +50,6 @@ class Star {
     // debugger
     let starParticles = new THREE.Geometry();
 
-
-
     for (let i = 0; i < timepoint.length; i += 2) {
       // for (let i = 0; i < 100; i += 1) {
       let vertices = new THREE.Vector3();
@@ -84,6 +82,31 @@ class Star {
     let points = new THREE.Points(starParticles, material);
     // particles.position.set(1,1,1)
     this.scene.add(points);
+
+    // for dynamic heatmap rendering. need to refactor though, too slow
+    // set colors as k-v pairs in objects? 
+    // look for other options
+      //  for (let i = 0; i < timepoint.length; i += 10) {
+      //    // for (let i = 0; i < 100; i += 1) {
+      //    let vertices = new THREE.Vector3();
+      //    vertices.x = timepoint[i].x / 10000;
+      //    vertices.y = timepoint[i].y / 10000;
+      //    vertices.z = 0;
+      //    let tempColor = this.generateHeatMap(timepoint, timepoint[i].T);
+      //    starParticles.vertices.push(vertices);
+      //    let texture = THREE.ImageUtils.loadTexture("images/starfield.png");
+      //    let material = new THREE.PointsMaterial({
+      //      size: 0.05,
+      //      color: tempColor,
+      //      map: texture,
+      //      opacity: 1,
+      //      // blending: THREE.AdditiveBlending,
+      //    });
+      //    let points = new THREE.Points(starParticles, material);
+      //    // particles.position.set(1,1,1)
+      //    this.scene.add(points);
+      //  }
+
   }
 
   generateHeatMap(timepoint, value) {
@@ -109,11 +132,18 @@ class Star {
     let red = 0xff0000;
     // return green;
 
-    // color intervals
-    let blueMax = maxStarVal * 0.2;
-    let greenMax = maxStarVal * 0.4;
-    let yellowMax = maxStarVal * 0.6;
-    let orangeMax = maxStarVal * 0.8;
+    // // color intervals (dynamic)
+    // let blueMax = maxStarVal * 0.2;
+    // let greenMax = maxStarVal * 0.4;
+    // let yellowMax = maxStarVal * 0.6;
+    // let orangeMax = maxStarVal * 0.8;
+    // let redMax = maxStarVal;
+
+    // set color intervals
+    let blueMax = 6;
+    let greenMax = 12;
+    let yellowMax = 18;
+    let orangeMax = 24;
     let redMax = maxStarVal;
 
     if (value >= 0 && value <= blueMax) {
