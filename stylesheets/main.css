@@ -29,11 +29,9 @@ h1 {
  text-align: center; 
  display: flex;
  flex: 3;
+ margin-left: 15px;
 }
 
-sub {
-    /* font-size: 13px; */
-}
 
 #header-right {
     /* border: 2px solid red; */
@@ -96,6 +94,7 @@ sub {
     height: 32px;
     position: relative;
     box-sizing: content-box;
+    margin-right: 11px;
 }
 
 .github {
@@ -239,7 +238,6 @@ input[type=range]::active {
 #l.pq {
     cursor: pointer;
 }
-
 
 
 /* The Modal (background) */

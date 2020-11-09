@@ -103,8 +103,8 @@ class Universe {
     this.slider = document.getElementById("slider-range");
     this.slider.addEventListener("input", this.sliderChange.bind(this));
 
-    const resetBtn = document.getElementById("reset-btn");
-    resetBtn.addEventListener("click", this.reset.bind(this));
+    this.resetBtn = document.getElementById("reset-btn");
+    this.resetBtn.addEventListener("click", this.reset.bind(this));
 
     const playBtn = document.getElementById("play-click");
     playBtn.addEventListener("click", this.timelapse.bind(this));
@@ -132,14 +132,15 @@ class Universe {
 
       let value = this.starSliderVals[this.timelapseIndex];
 
-        this.timelapseIndex = (this.timelapseIndex + 1) % this.starSliderVals.length;
-            $("#slider-range").val(value);
-            this.renderStar(`${value}`);
+      this.timelapseIndex = (this.timelapseIndex + 1) % this.starSliderVals.length;
+      $("#slider-range").val(value);
+      this.renderStar(`${value}`);
             // event listeners don't work on programmatic slider changes
             // this.sliderChange.bind(this)();
             // this.slider.addEventListener("change", this.sliderChange.bind(this));
             // $("#slider-range").change(this.sliderChange.bind(this));
-    }, 500);
+      }, 500);
+          this.resetBtn.addEventListener("click", this.timelapseIndex = 0);
 
   }
 
