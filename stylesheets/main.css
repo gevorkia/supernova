@@ -323,6 +323,19 @@ input[type=range]::active {
     color: rgba(245, 168, 0, 0.694);
 }
 
+.about-img-wrapper {
+    display: flex;
+    justify-content: space-around;
+    /* border: 2px solid red; */
+}
+
+.about-img {
+    height: 40%;
+    width: 40%;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
 /* The Close Button */
 .close {
   color: #aaa;
