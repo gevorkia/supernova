@@ -316,11 +316,11 @@ input[type=range]::active {
 .modal-links {
     text-decoration: none;
     font-weight: 500;
-    color: rgb(32, 58, 85)
+    color: rgb(5, 84, 255)
 }
 
 .modal-links:hover {
-    color: rgba(58, 116, 58, 0.694);
+    color: rgba(245, 168, 0, 0.694);
 }
 
 /* The Close Button */
