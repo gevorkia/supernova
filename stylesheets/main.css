@@ -51,7 +51,7 @@ h1 {
     /* width: 100%; */
     border: 1px solid transparent;
     cursor: pointer;
-    background-color: rgb(176, 184, 230);
+    background-color: rgb(193, 200, 244);
     font-family: Arial;
     /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 18px;
@@ -280,7 +280,12 @@ input[type=range]::active {
 .about-blurb {
     width: 88%;
     margin: auto;
-    /* border-bottom: 2px dashed black; */
+}
+
+.about-blurb  a {
+    font-size: 14px;
+    line-height: 10px;
+    font-style: italic;
 }
 
 .about-mid {
@@ -288,6 +293,7 @@ input[type=range]::active {
     padding-left: 40px;
     padding-right: 40px;
     margin: auto;
+    font-size: 16px;
 }
 
 .modal-header {
@@ -297,19 +303,14 @@ input[type=range]::active {
     font-size: 19px;
 }
 
-/* .about-mid-thanks {
-    background-color: rgb(195, 225, 252);
-    padding-top: 14px;
-    width: 87%;
-    padding-left: 40px;
-    padding-right: 40px;
-    margin: auto;
-} */
-
 .about-us {
     padding-left: 40px;
     padding-right: 40px;
     margin: auto;
+}
+
+.about-us-body {
+    font-size: 17px;
 }
 
 .modal-links {
