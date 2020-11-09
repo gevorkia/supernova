@@ -8,7 +8,7 @@ canvas {
 }
 
 .header-wrapper {
-    border: 2px solid white;
+    /* border: 2px solid white; */
     position: absolute; 
     z-index: 1;
     display: flex;
@@ -28,7 +28,7 @@ h1 {
  font: 400 20px Arial;
  text-align: center; 
  display: flex;
- flex: 1;
+ flex: 3;
 }
 
 sub {
@@ -36,29 +36,43 @@ sub {
 }
 
 #header-right {
-    border: 2px solid red;
-    height: 100px;
+    /* border: 2px solid red; */
+    /* height: 100px; */
     display: flex;
-    flex: 1;
+    flex: 0.5;
 }
 
-.about-wrapper {
-    border: 2px solid yellow;
-    width: 100%;
+#about-wrapper {
+    /* border: 2px solid yellow; */
+    /* width: 100%; */
+    padding: 10px;
 }
 
 #about-btn {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     /* width: 100%; */
-    background-color: grey;
+    cursor: pointer;
+    background-color: rgb(176, 184, 230);
+    font-family: Arial;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 18px;
+    opacity: 0.6;
+    width: 70px;
+    margin-top: 2px;
+    padding: 5px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-icons {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding: 20px;
+    padding: 10px;
+    padding-right: 20px;
 }
 
 .contact-icons div {
@@ -115,28 +129,6 @@ sub {
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* opacity: 0; */
-    /* fill: black; */
-    /* background-color: red; */
-    /* stroke: none;  */
-    /* position: fixed; */
-    /* color: red; */
-    /* left: 100px; */
-    /* margin-top: 90%; */
-	/* position: absolute; */
-	
-   /* position:fixed; */
-	/* left: 0;
-	right: 0; */
-	/* color: red;
-	height: 200px;
-    /* bottom: 0; */
-    /* z-index: 3;
-	font-size: 100%;
-	background-color: white; */ */
-    /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABOCAYAAADhG3wwAAAARUlEQVQYV2P4//8/AxMDCHBpOjKCWGCCCc5C4zLh4qJJMOOSZcbFRZX4D+IyYpNFYxGhBJtivJYTcD1+n2Pj4gxYSNgDAAdtBaOwcYKYAAAAAElFTkSuQmCC) 0 100% repeat-x; */
-    /* background-size: contain; */
-    /* background: linear-gradient(rgba(10,41,65,0),rgba(10,41,65,.6)); */
 }
 
 #play-button img {
@@ -159,21 +151,30 @@ sub {
     cursor: pointer;
 }
 
+
 input[type=range] {
-    /* position: fixed; */
-	/* z-index: 1; */
+    background-color: #88aed7;
     transition: opacity 2s;
     box-sizing: border-box;
     font-size: 1em;
     line-height: 1em;
     height: .5em;
     cursor: pointer;
-    width: 30%;
+    width: 80%;
     left: 35%;
     bottom: 4.5em;
     /* -webkit-appearance:none; */
     -moz-appearance:none;
-    width: 80%;
+    border-radius: 8px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px; 
+  background:#ab8c36;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 input[type=range]:focus { 
