@@ -184,9 +184,9 @@ class Universe {
       0.1,
       1000
     );
-    this.camera.position.x = 1;
-    this.camera.position.y = 0;
-    this.camera.position.z = 12;
+    this.camera.position.x = 0;
+    this.camera.position.y = 3;
+    this.camera.position.z = 14;
     this.camera.lookAt(this.scene.position);
 
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -214,8 +214,8 @@ class Universe {
     controls.update();
 
     // const light = new THREE.AmbientLight(0x404040, 100);
-    const light = new THREE.PointLight(0xffffff, 1, 500);
-    light.position.set(10, 0, 25);
+    const light = new THREE.PointLight(0xffffff, 100, 0);
+    light.position.set(10, 10, 10);
     this.scene.add(light);
   }
 

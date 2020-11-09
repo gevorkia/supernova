@@ -71,11 +71,18 @@ class Star {
     let texture = THREE.ImageUtils.loadTexture("images/starfield.png");
     // let texture = THREE.ImageUtils.loadTexture("images/mapa.png");
 
+    // let material = new THREE.MeshPhongMaterial({
+    //   size: 0.05,
+    //   color: hex,
+    //   // map: texture,
+    //   shininess: 1
+    // });
+
     let material = new THREE.PointsMaterial({
       size: 0.05,
       color: hex,
       map: texture,
-      opacity: 1,
+      opacity: 10,
       blending: THREE.AdditiveBlending,
     });
 

@@ -11,18 +11,18 @@ canvas {
  position: absolute; 
  z-index: 1;
  display: flex;
- /* justify-content: center; */
+ justify-content: center;
   /* margin: 0 auto; */
     position: absolute;
-    left: 50%;
+    left: 1.5%;
     top: 1vw;
-    transform: translateX(-50%);
+    /* transform: translateX(-50%); */
     /* box-sizing: border-box; */
 }
 
 h1 {
  color: rgb(165, 156, 138);
- padding: 20px;
+ padding: 14px;
  font: 400 20px Arial;
  text-align: center; 
 }
@@ -148,16 +148,21 @@ input[type=range]::active {
 #heatmap-bar {
     position: absolute;
     right: 2.5em;
+    /* left: 2.5em; */
     z-index: 6;
     line-height: 1.5em;
-    bottom: 7.5em;
-    width: 60px;
+    bottom: 5.5em;
+    width: 50px;
     /* display: table-cell; */
     background: #777;
     background: linear-gradient(90deg,#555,#999,#555);
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.units-header {
+    line-height: 18px; padding: 3px
 }
 
 #l.pq {
