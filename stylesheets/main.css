@@ -12,13 +12,8 @@ canvas {
     position: absolute; 
     z-index: 1;
     display: flex;
-    /* justify-content: center; */
-    /* margin: 0 auto; */
     position: absolute;
-    /* left: 1.5%; */
     top: 1vw;
-    /* transform: translateX(-50%); */
-    /* box-sizing: border-box; */
     width: 100%;
 }
 
@@ -35,25 +30,21 @@ h1 {
 
 #header-right {
     /* border: 2px solid red; */
-    /* height: 100px; */
     display: flex;
     flex: 0.5;
 }
 
 #about-wrapper {
     /* border: 2px solid yellow; */
-    /* width: 100%; */
     padding: 10px;
 }
 
 #about-btn {
     /* border: 2px solid red; */
-    /* width: 100%; */
     border: 1px solid transparent;
     cursor: pointer;
     background-color: rgb(193, 200, 244);
     font-family: Arial;
-    /* font-family: Arial, Helvetica, sans-serif; */
     font-size: 18px;
     font-weight: 550;
     opacity: 0.6;
@@ -110,7 +101,6 @@ h1 {
     background-image: url('../images/linkedin.png');
     background-size: 100%;
     background-repeat: no-repeat;
-    /* margin-right: 16px; */
 }
 
 
@@ -254,100 +244,4 @@ input[type=range]::active {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #f7f0de;
-  opacity: 0.9;
-  margin: 7% auto; /* 15% from the top and centered */
-  padding-top: 20px;
-  /* padding-left: 10px; */
-  /* padding-right: 10px; */
-  padding-bottom: 35px; 
-  border: 1px solid #888;
-  width: 35%; /* Could be more or less, depending on screen size */
-  font-size: 18px;
-  /* font-family: Arial; */
-  font-family: sans-serif;
-  font-weight: 300;
-  text-align: justify;
-  line-height: 23px;
-  /* box-shadow: 0 8px 16px 0 rgba(235, 247, 165, 0.954), 0 0 4px 0 rgba(166, 165, 247, 0.954); */
-  /* border-radius: 8px; */
-}
-
-.about-blurb {
-    width: 88%;
-    margin: auto;
-}
-
-.about-blurb  a {
-    font-size: 14px;
-    line-height: 10px;
-    font-style: italic;
-}
-
-.about-mid {
-    background-color: rgb(252, 214, 220);
-    padding-left: 40px;
-    padding-right: 40px;
-    margin: auto;
-    font-size: 16px;
-}
-
-.modal-header {
-    text-align: center;
-    font-weight: 400;
-    padding-top: 16px;
-    font-size: 19px;
-}
-
-.about-us {
-    padding-left: 40px;
-    padding-right: 40px;
-    margin: auto;
-}
-
-.about-us-body {
-    font-size: 17px;
-}
-
-.modal-links {
-    text-decoration: none;
-    font-weight: 500;
-    color: rgb(65, 125, 75)
-}
-
-.modal-links:hover {
-    color: rgba(245, 168, 0, 0.694);
-}
-
-.about-img-wrapper {
-    display: flex;
-    justify-content: space-around;
-    /* border: 2px solid red; */
-}
-
-.about-img {
-    height: 40%;
-    width: 40%;
-    margin-top: 30px;
-    border-radius: 8px;
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-  padding: 20px;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
 }
