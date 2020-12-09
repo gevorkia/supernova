@@ -4,6 +4,8 @@ Supernova is a timelapse simulation of a core-collapse supernova using star data
 
 The sheer volume of data (total ~ 100 million POJOs and 12 GBs) including browser and Three.js rendering speed created limitations. Space and time complexity were optimized to incorporate more data while keeping user experience in mind. 
 
+### Live: [Supernova](https://gevorkia.github.io/supernova/)
+
 ![Alt Text](images/supernova.gif)
 
 ## Technology
