@@ -19,7 +19,7 @@ The sheer volume of data (total ~ 100 million POJOs and 12 GBs) including browse
 
 ### Timelapse & Event Listeners
 
-The universe was created by setting up a starfield backdrop generated using random vertices and adding "children" to the scene. Star renderings at different timepoints were used to illustrate the timelapse which was acheived by using event listeners and a set interval. 
+The universe was created by setting up a starfield backdrop generated using random vertices and adding "children" to the scene. Star renderings at different timepoints were used to illustrate the timelapse which was achieved by using event listeners and a set interval. 
 
 When a user clicks play, an event listener allows for the pause button to be rendered in place while a set interval renders the supernova dependent on the value present on the slider as the slider moves through the entire range of time. The user can pause the timelapse and reset to the beginning. Dynamic rendering of the supernova is also possible based on manual slider manipulation by the user.
 
